@@ -13,7 +13,9 @@
         display: inline;
         color: map-get($palette, eighth_element);
         border: map-get($palette, third_element);
-        transition: all 0.4s
+        transition: all 0.4s;
+        outline: none;
+
     }
 
     &:active {
@@ -26,6 +28,8 @@
         border: map-get($palette, eighth_element);
         transition: all 0.4s;
         transform: scale(0.97);
+        outline: none;
+
     }
 
 
@@ -37,7 +41,8 @@
         display: inline;
         color: map-get($palette_dark,first_element);
         border: map-get($palette, third_element);
-        transition: all 0.4s
+        transition: all 0.4s;
+        outline: none;
     }
 
 }

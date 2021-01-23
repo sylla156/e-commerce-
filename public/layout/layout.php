@@ -50,15 +50,14 @@
             </button>
             <div class="head_second--search">
 
-                <div class="head_second--search--1" >
+                <div class="head_second--search--1">
 
                     <form action="" method="GET">
                         <input type="text" placeholder="    RECHERCHE" name="q">
                 </div>
                 <div class="head_second--search--2">
 
-                    <button type="submit" ><img src="picture/search.png"
-                            alt="recherche"></button>
+                    <button type="submit"><img src="picture/search.png" alt="recherche"></button>
                 </div>
                 </form>
             </div>
@@ -66,19 +65,38 @@
     </header>
 
 
-    <div class="slider no-click" >
+    <div class="slider no-click">
         <?php for ($i=0; $i <15 ; $i++) { 
               echo "<p>categorie$i</p>";
            } ?>
     </div>
-   
 
-    
+
+
     <div class="sign no-click">
-       di
-    </div>
 
-    
+
+        <div class="sign_element--first sign_element">
+            <a href="/connexion"><p><img src="picture/user.png" alt=""></p>
+            <p>connexion</p></a>
+        </div>
+        <hr>
+        <div class="sign_element--second sign_element">
+            <a href="/inscription"><p><img src="picture/sign_out.png" alt=""></p>
+            <p>inscription</p></a>
+        </div>
+        <hr>
+
+        <div class="sign_element--thrid sign_element">
+        <a href="/commande"><p><img src="/picture/order.png" alt=""></p>
+        <p>   vos commande</p></a>
+        </div>
+
+        <div class="sign_element--fourth sign_element">
+        <a href="/favoris"><p><img src="picture/heart.png" alt=""></p>
+        <p>   vos favoris</p> </a>
+        </div>
+    </div>
 
     <?php
 

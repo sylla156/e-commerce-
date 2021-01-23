@@ -11,8 +11,8 @@ menu.addEventListener('click', () => {
             slider.style.opacity = op;
         }, 0.2);
 
+        clearInterval(stop);
         setTimeout(() => {
-            clearInterval(stop);
         }, 100);
     } else {
         menu.style.transform = "rotate(180deg)";
@@ -22,8 +22,8 @@ menu.addEventListener('click', () => {
             slider.style.opacity = op;
         }, 0.2);
 
+        clearInterval(stop);
         setTimeout(() => {
-            clearInterval(stop);
             slider.attributes.class.textContent += " no-click";
         }, 100);
     }
@@ -51,8 +51,8 @@ sign_up.addEventListener('click', () => {
             sign.style.opacity = opa;
         }, 0.2);
 
+        clearInterval(stop);
         setTimeout(() => {
-            clearInterval(stop);
         }, 100);
     } else {
         let opo = 2;
@@ -61,8 +61,8 @@ sign_up.addEventListener('click', () => {
             sign.style.opacity = opo;
         }, 0.2);
 
-        sign.attributes.class.textContent += " no-click";
         clearInterval(stop);
+        sign.attributes.class.textContent += " no-click";
     }
 })
 
