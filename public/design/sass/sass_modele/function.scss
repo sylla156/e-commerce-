@@ -1,0 +1,64 @@
+@import "palette.scss";
+
+@function mode($mode){
+    @if ($mode == "dark"){
+        @return $palette_dark;
+    }
+
+    @if ($mode == "light"){
+        @return $palette_light;
+    }
+
+
+    @if($mode == "regular"){
+        @return $palette_regular;
+    }
+
+    @else{
+        @return $palette_dark;
+    }
+}
+
+
+@function first_position($position){
+    @if($position == "center"){
+        @return "center";
+    }
+
+
+      @if($position == "start"){
+        @return "flex-start";
+    }
+
+
+      @if($position == "end"){
+        @return "flex-end";
+    }
+
+      @if($position == "space"){
+        @return "space-around";
+    }
+}
+
+
+
+
+@function second_position($position){
+    @if($position == "center"){
+        @return "center";
+    }
+
+
+      @if($position == "start"){
+        @return "flex-start";
+    }
+
+
+      @if($position == "end"){
+        @return "flex-end";
+    }
+
+      @if($position == "space"){
+        @return "stretch ";
+    }
+}

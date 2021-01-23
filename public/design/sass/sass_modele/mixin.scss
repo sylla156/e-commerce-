@@ -1,0 +1,131 @@
+@mixin dynamic($palette, $dg:"none", $col:"yes") {
+    @if ($col=="yes") {
+        color: map-get($palette_dark, ninth_element);
+    }
+
+    text-decoration: none;
+
+    &:hover {
+        @if ($dg=="yes") {
+            background-color: map-get($palette, first_element);
+        }
+
+        display: inline;
+        color: map-get($palette, eighth_element);
+        border: map-get($palette, third_element);
+        transition: all 0.4s
+    }
+
+    &:active {
+        @if ($dg=="yes") {
+            background-color: map-get($palette, fourth_element);
+        }
+
+        display: inline;
+        color: map-get($palette, eighth_element);
+        border: map-get($palette, eighth_element);
+        transition: all 0.4s;
+        transform: scale(0.97);
+    }
+
+
+    &:focus {
+        @if ($dg=="yes") {
+            background-color: map-get($palette, ninth_element);
+        }
+
+        display: inline;
+        color: map-get($palette_dark,first_element);
+        border: map-get($palette, third_element);
+        transition: all 0.4s
+    }
+
+}
+
+
+
+@mixin flex($direction:row, $first_position:center, $second_position:center) {
+    display: flex;
+    justify-content: $first_position;
+    align-items: $second_position;
+    flex-direction: $direction;
+}
+
+
+
+@mixin body {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    color: map-get($palette_dark, ninth_element);
+    background-color: white;
+}
+
+
+
+@mixin head {
+    background-color: map-get($palette_dark, third_element);
+
+    @media all and (min-width:1024px) {
+        &_main{
+            &--searchI{
+                display: none;
+            }
+        }
+    }
+
+    @media all and (max-width:1023px) and (min-width: 800px) {
+        &_main{
+            &--searchI{
+                display: none;
+            }
+        }
+    }
+
+    @media all and (max-width:799px) and (min-width: 280px) {
+        &_main{
+            &--search{
+                display: none;
+            }
+
+            &--searchI{
+                display:inline-block;
+            }
+        }
+    }
+
+}
+
+@mixin footer {
+    background-color: map-get($palette_dark, ninth_element);
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    font-size: 19px;
+    color: map-get($palette_regular, first_element);
+}
+
+
+@mixin media($big,$medium,$small){
+    
+    @media all and (min-width:1024px) {
+        width: $big;
+    }
+
+    @media all and (max-width:1023px) and (min-width: 800px) {
+      width:$medium;
+    }
+
+    @media all and (max-width:799px) and (min-width: 280px) {
+      width: $small;
+    }
+
+}
+
+
+@mixin  no_link {
+    a{
+        color:map-get($palette_dark,ninth_element);
+        text-decoration: none;
+    }
+}

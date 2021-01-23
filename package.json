@@ -1,0 +1,11 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": " un simple site de e-commerce ",
+  "main": "index.js",
+  "scripts": {
+    "sass":"sass public/design/sass/style.scss:public/design/style/style.css  --watch  --no-source-map -s compressed  "
+  },
+  "author": "",
+  "license": "ISC"
+}

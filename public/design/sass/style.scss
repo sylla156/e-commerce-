@@ -1,0 +1,133 @@
+@import "sass_modele/function.scss";
+@import "sass_modele/mixin.scss";
+
+body {
+    @include body();
+    @include no_link();
+}
+
+.head {
+    @include head();
+
+    &_main {
+
+        div.first {
+            @include flex(row, space-around);
+            flex: 1;
+        }
+
+        @include flex(row, space-around);
+
+        &--title {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: cursive;
+        }
+
+        .element {
+            @include dynamic(mode("regular"));
+            cursor: pointer;
+        }
+
+
+        &--search {
+            flex: 3;
+            text-align: center;
+
+            &--1 {
+                border-radius: 20px 20px 20px 20px;
+                width: 80%;
+                height: 20px;
+                outline: none;
+                border: none;
+            }
+
+            &--2 {
+                border-radius: 20px 20px 20px 20px;
+                height: 25px;
+                background-color: map-get($palette_dark, first_element);
+                outline: none;
+                border: none;
+            }
+        }
+
+    }
+
+    &_second {
+        display: none;
+        button:first-child{
+            .first_back{
+                transform: rotate(180deg)
+            }
+            
+        }
+        &--search {
+            @include flex(row, space-around);
+            text-align: end;
+
+            &--1 {
+                height: 28px;
+                flex: 1;
+                outline: border;
+                color: white;
+
+                input {
+                    @include dynamic(mode("dark"), "yes");
+                    width: 80%;
+                    height: 23px;
+                    text-align: start;
+                }
+            }
+
+            &--2 {
+                background-color: palegoldenrod;
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+.slider {
+    position: absolute;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    @include media(25%, 40%, 80%);
+    margin: 10px;
+
+}
+
+.no-click {
+    display: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+
+.sign {
+    position: absolute;
+    border-radius: 30px;
+    @include media(25%, 40%, 80%);
+    margin: 10px;
+    right: 0;
+    background-color: whitesmoke;
+
+}
+
+.footer {
+    @include footer;
+
+    &_one {
+        &--element {
+            margin: 0 20px;
+            transition: all 0.4s;
+            @include dynamic(mode("dark"), "none", "none");
+        }
+    }
+}
+
+span {
+    font-size: 19px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
