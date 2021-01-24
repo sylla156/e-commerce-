@@ -72,23 +72,25 @@
     </div>
 
 
-
+<?php  if(!empty($_SESSION['user_info'])){
+$user_info_all= $_SESSION['user_info'][0];
+    ?>
     <div class="sign no-click">
 
 
         <div class="sign_element--first sign_element">
             <a href="/connexion"><p><img src="picture/user.png" alt=""></p>
-            <p>connexion</p></a>
+            <p><?=$user_info_all[1]?></p></a>
         </div>
         <hr>
         <div class="sign_element--second sign_element">
-            <a href="/inscription"><p><img src="picture/sign_out.png" alt=""></p>
-            <p>inscription</p></a>
+            <a href="/?status=yes"><p><img src="picture/sign_out.png" alt=""></p>
+            <p>deconection</p></a>
         </div>
         <hr>
 
         <div class="sign_element--thrid sign_element">
-        <a href="/commande"><p><img src="/picture/order.png" alt=""></p>
+        <a href="/?status=yes"><p><img src="/picture/order.png" alt=""></p>
         <p>   vos commande</p></a>
         </div>
 
@@ -98,14 +100,48 @@
         </div>
     </div>
 
+
+    <?php
+    
+}else{
+    
+    ?>
+<div class="sign no-click">
+    
+    
+      <div class="sign_element--first sign_element">
+          <a href="/connexion"><p><img src="picture/user.png" alt=""></p>
+          <p>connexion</p></a>
+      </div>
+      <hr>
+      <div class="sign_element--second sign_element">
+          <a href="/inscription"><p><img src="picture/sign_out.png" alt=""></p>
+          <p>inscription</p></a>
+      </div>
+      <hr>
+
+      <div class="sign_element--thrid sign_element">
+      <a href="/connexion"><p><img src="/picture/order.png" alt=""></p>
+      <p>   vos commande</p></a>
+      </div>
+      
+      <div class="sign_element--fourth sign_element">
+      <a href="/connexion"><p><img src="picture/heart.png" alt=""></p>
+      <p>   vos favoris</p> </a>
+      </div>
+  </div>
+  <?php
+}
+?>
+
     <?php
 
 if(isset($container)){
     echo $container;
 }
+
+
 ?>
-
-
 
     <footer class="footer">
         <div class="footer_one">

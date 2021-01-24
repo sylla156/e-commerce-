@@ -3,20 +3,18 @@
 use aps\connexion;
 use aps\filters;
 
-if (isset( $_SESSION["email"]) and isset($_SESSION["password"])){
-    $email = $_SESSION["email"];
-    $password = $_SESSION["password"];
-}
 
-/*
-if (isset($email) and isset($password )){
+if (isset($_POST['email']) and isset($_POST['password'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
     $db = new connexion();
-    $user = $db->verifie_p(filters::filters_email($email),(string)$password);
-    if ($user != false){
-        $_SESSION["user"]  =  $user;
+    $user_info = $db->verifie_p(filters::filters_email($email),(string)$password);
+
+    if($user_info != false || $user_info != null){
+        $_SESSION["user_info"] = $user_info;
+        header("location:/");
     }
+ 
 
-};
-
-
-dump($_SESSION);*/
+}

@@ -1,13 +1,17 @@
- <?php
- session_start();
+<?php
+session_start();
+
+if(isset($_GET['status'])){
+    session_destroy();
+    unset($_SESSION);
+}
 use aps\router;
 
 require "../vendor/autoload.php";
 require_once "layout/layout.php";
 
-dump($_SESSION);
 
-$voir = new router("/connexion","/","/panier","/menu");
+$voir = new router("/connexion","/","/panier","/menu","/deconnexion");
 $voir->execute();
 
 $title = "Accueil";
@@ -15,8 +19,6 @@ $title = "Accueil";
 echo "<title>
  $title
 </title>";
-
-
 
 
  ?>

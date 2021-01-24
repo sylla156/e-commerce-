@@ -88,4 +88,9 @@ icone_back.addEventListener('click', () => {
     head_second.style.display = "none";
 })
 
-//___________connexion//
+//___________footer//
+
+let footer = document.querySelector('footer');
+console.log(footer);
+
+

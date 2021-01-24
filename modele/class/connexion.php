@@ -57,7 +57,7 @@ class connexion{
         $this->connecter();
         $values_take = $this->take_element_p($email);
         foreach ($values_take as $key => $value) {
-           if($value[ "email"] == $email and self::is_hash("777",$value["pass"])){
+           if($value[ "email"] == $email and self::is_hash($password,$value["pass"])){
                return $values_take;
            }
            else{

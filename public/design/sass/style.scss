@@ -11,6 +11,7 @@ body {
 }
 
 .head {
+    position: relative;
     @include head();
 
     &_main {
@@ -107,6 +108,7 @@ body {
     border-radius: 30px;
     @include media(25%, 40%, 80%);
     margin: 10px;
+    z-index:2;
 
 }
 
@@ -120,11 +122,11 @@ body {
 .sign {
     position: absolute;
     border-radius: 30px;
-    @include media(25%, 40%, 80%);
+    @include media(25%, 40%, 70%);
     margin: 10px;
     right: 0;
     background-color: whitesmoke;
-
+    z-index: 2;
 }
 
 .footer {
@@ -149,6 +151,7 @@ span {
 .sign {
     &_element {
         margin: 30px 10px;
+        @include media(30px,20px,10px);
 
         &--first {
             text-align: center;

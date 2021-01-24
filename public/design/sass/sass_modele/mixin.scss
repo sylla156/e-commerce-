@@ -103,7 +103,7 @@
 
 @mixin footer {
     background-color: map-get($palette_dark, ninth_element);
-    position: absolute;
+    position: fixed;
     bottom: 0%;
     width: 100%;
     font-size: 19px;

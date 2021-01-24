@@ -1,7 +1,7 @@
 
 <div class="signUP">
     <div class="signUP_main">
-        <form action="/index.php" method="GET">
+        <form action="/connexion" method="POST">
             <input type="email" placeholder="  email"  name="email">
             <br><br>
             <input type="password"  placeholder=" password" name="password">

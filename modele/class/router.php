@@ -26,7 +26,7 @@ class router{
 
     private function element_router(){
         foreach ($this->url_name as $key => $value) {
-            $this->route->map('GET',$value,function(){
+            $this->route->map('GET|POST',$value,function(){
                 $redirection = $_SERVER["PATH_INFO"] ?? "/../public";
                   require_once   __DIR__."/../../controller".$redirection."/index.php";
             });
@@ -46,10 +46,13 @@ class router{
            
             if ( isset($this->callback_url['target'])){
                 $this->callback_url['target']();
+                break;
             }
             
-          
-            
+            else{
+                require_once  "../controller/error/index.php";
+                break;
+            }
         }
     }
 
