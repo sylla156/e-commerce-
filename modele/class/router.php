@@ -46,13 +46,10 @@ class router{
            
             if ( isset($this->callback_url['target'])){
                 $this->callback_url['target']();
-                break;
             }
             
-            else{
-                require_once  "../controller/error/index.php";
-                break;
-            }
+          
+            
         }
     }
 

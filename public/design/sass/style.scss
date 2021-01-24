@@ -4,8 +4,9 @@
 body {
     @include body();
     @include no_link();
-    hr{
-        border-color:white;
+
+    hr {
+        border-color: white;
     }
 }
 
@@ -88,11 +89,12 @@ body {
             &--2 {
                 margin: 0;
                 border-radius: 20px;
-                button{
+
+                button {
                     border: none;
                     outline: none;
                 }
-               
+
             }
         }
     }
@@ -150,9 +152,10 @@ span {
 
         &--first {
             text-align: center;
+
             a {
                 @include flex;
-                background-color: map-get($palette_dark,first_element);
+                background-color: map-get($palette_dark, first_element);
                 padding: 20px 60px;
                 border-radius: 20px;
                 box-shadow: 10px 10px 10px grey;
@@ -164,9 +167,10 @@ span {
 
         &--second {
             text-align: center;
+
             a {
                 @include flex;
-                background-color: map-get($palette_dark,first_element);
+                background-color: map-get($palette_dark, first_element);
                 padding: 20px 60px;
                 border-radius: 20px;
                 box-shadow: 10px 10px 10px grey;
@@ -176,14 +180,16 @@ span {
             }
         }
 
-        
-        &--thrid{
+
+        &--thrid {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-weight: bold;
             font-size: 14px;
-            a{
-                @include flex(row,flex-start,flex-start);
-                p:last-child{
+
+            a {
+                @include flex(row, flex-start, flex-start);
+
+                p:last-child {
                     text-indent: 10px;
                 }
             }
@@ -191,21 +197,71 @@ span {
 
 
 
-        &--fourth{
+        &--fourth {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-weight: bold;
             font-size: 14px;
-            a{
-                @include flex(row,flex-start,flex-start);
-                p:last-child{
+
+            a {
+                @include flex(row, flex-start, flex-start);
+
+                p:last-child {
                     text-indent: 10px;
                 }
             }
         }
 
-        &--first:hover,&--second:hover{
+        &--first:hover,
+        &--second:hover {
             transform: scale(0.95);
         }
 
+    }
+}
+
+//______connexion
+
+.signUP {
+    @include flex(row);
+    height: 80vh;
+
+    &_main {
+        background-color: map-get($palette_dark, second_element);
+        @include media(50%, 80%, 80%);
+        height: 60vh;
+        @include flex;
+
+        input {
+            border: none;
+            outline: none;
+            @include media(40vw, 40vw, 60vw);
+            @include mediaH(40px, 40px, 40px);
+            border-bottom: 2px solid map-get($palette_regular, second_element);
+            transition: all 1s;
+        }
+
+        input:invalid{
+            border-bottom: 3px solid map-get($palette_regular, fifth_element);
+            transition: all 1s;
+        }
+
+       
+
+        input:valid{
+            border-bottom: 3px solid map-get($palette_regular, sixth_element);
+            transition: all 1s;
+        }
+
+
+        p{
+            text-align: center;
+            button{
+                border-radius: 20px;
+                padding: 10px;
+                border: none;
+                outline: none;
+                background-color: white;
+            }
+        }
     }
 }

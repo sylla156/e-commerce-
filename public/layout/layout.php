@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="head_main--title  element">
-                    <p><a href="">logo</a></p>
+                    <p><a href="/">logo</a></p>
                 </div>
             </div>
 

@@ -33,7 +33,7 @@ window.addEventListener('resize', faire(menu));
 
 menu.style.opacity = 1;
 function faire(menu) {
-    if (innerWidth > 1024) {
+    if (innerWidth > 1024 && location.pathname == "/") {
         menu.click();
     } 
 }
@@ -87,3 +87,5 @@ icone_back.addEventListener('click', () => {
     head_main.attributes.class.textContent = "head_main";
     head_second.style.display = "none";
 })
+
+//___________connexion//
