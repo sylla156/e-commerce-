@@ -84,13 +84,13 @@ $user_info_all= $_SESSION['user_info'][0];
         </div>
         <hr>
         <div class="sign_element--second sign_element">
-            <a href="/?status=yes"><p><img src="picture/sign_out.png" alt=""></p>
-            <p>deconection</p></a>
+            <a href="/?status=yes"><p><img style ="transform:rotate(180deg)" src="picture/sign_out.png" alt=""></p>
+            <p style="text-indent:2px">deconection</p></a>
         </div>
         <hr>
 
         <div class="sign_element--thrid sign_element">
-        <a href="/?status=yes"><p><img src="/picture/order.png" alt=""></p>
+        <a href="/commande"><p><img src="/picture/order.png" alt=""></p>
         <p>   vos commande</p></a>
         </div>
 
@@ -121,7 +121,7 @@ $user_info_all= $_SESSION['user_info'][0];
       <hr>
 
       <div class="sign_element--thrid sign_element">
-      <a href="/connexion"><p><img src="/picture/order.png" alt=""></p>
+      <a href="/commande"><p><img src="/picture/order.png" alt=""></p>
       <p>   vos commande</p></a>
       </div>
       

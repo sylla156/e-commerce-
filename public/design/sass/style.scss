@@ -11,7 +11,7 @@ body {
 }
 
 .head {
-    position: relative;
+  
     @include head();
 
     &_main {
@@ -127,6 +127,7 @@ body {
     right: 0;
     background-color: whitesmoke;
     z-index: 2;
+
 }
 
 .footer {
@@ -149,9 +150,11 @@ span {
 
 
 .sign {
+    
     &_element {
         margin: 30px 10px;
         @include media(30px,20px,10px);
+
 
         &--first {
             text-align: center;
@@ -225,8 +228,16 @@ span {
 //______connexion
 
 .signUP {
-    @include flex(row);
+    @include flex(column);
     height: 80vh;
+    
+        h1{
+
+            font-family: cursive;
+            text-transform: capitalize;
+            text-decoration: underline;
+        }
+    
 
     &_main {
         background-color: map-get($palette_dark, second_element);
@@ -266,5 +277,25 @@ span {
                 background-color: white;
             }
         }
+    }
+}
+
+.shit{
+     @include invalid;
+     text-align: center;
+     margin: 1%  8%;
+     p{
+         padding: 10px;
+     }
+}
+
+
+
+.best{
+    @include valid;
+    text-align: center;
+    margin: 1%  8%;
+    p{
+        padding: 10px;
     }
 }

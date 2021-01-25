@@ -14,6 +14,12 @@ if (isset($_POST['email']) and isset($_POST['password'])){
     if($user_info != false || $user_info != null){
         $_SESSION["user_info"] = $user_info;
         header("location:/");
+    }else{
+        $alert ="<div class=\"shit\">
+        <p>
+           email ou password incorrect
+        </p>
+    </div>";
     }
  
 

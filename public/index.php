@@ -11,7 +11,7 @@ require "../vendor/autoload.php";
 require_once "layout/layout.php";
 
 
-$voir = new router("/connexion","/","/panier","/menu","/deconnexion");
+$voir = new router("/connexion","/","/panier","/menu","/inscription");
 $voir->execute();
 
 $title = "Accueil";

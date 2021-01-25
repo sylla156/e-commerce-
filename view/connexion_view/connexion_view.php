@@ -1,5 +1,11 @@
+<?php
+if (isset($alert)){
+    echo $alert;
+}
+?>
 
 <div class="signUP">
+    <p class="signUP_title"><h1>connection</h1></p>
     <div class="signUP_main">
         <form action="/connexion" method="POST">
             <input type="email" placeholder="  email"  name="email">

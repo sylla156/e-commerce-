@@ -34,12 +34,14 @@ class connexion{
 
 
 
-    public function insere_p(string $nom,string $prenom,string $email,string $password):void {
-        $this->connecter();
-        $go = $this->db->prepare("INSERT INTO `personne` (`id`, `nom`, `prenom`, `email`, `pass`) VALUES (NULL, ?, ?, ?, ?)");
-
-        $go->execute(array($nom,$prenom,$email,self::or_hash($password)));
-
+    public function insere_p(string $nom,string $prenom,string $email,string $password){
+        
+            $this->connecter();            
+            $go = $this->db->prepare("INSERT INTO `personne` (`id`, `nom`, `prenom`, `email`, `pass`) VALUES (NULL, ?, ?, ?, ?)");
+    
+            $go->execute(array($nom,$prenom,$email,self::or_hash($password)));
+            return true;
+       
     }
     
     

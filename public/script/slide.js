@@ -11,9 +11,7 @@ menu.addEventListener('click', () => {
             slider.style.opacity = op;
         }, 0.2);
 
-        clearInterval(stop);
-        setTimeout(() => {
-        }, 100);
+        
     } else {
         menu.style.transform = "rotate(180deg)";
         let op = 2;
@@ -23,9 +21,8 @@ menu.addEventListener('click', () => {
         }, 0.2);
 
         clearInterval(stop);
-        setTimeout(() => {
-            slider.attributes.class.textContent += " no-click";
-        }, 100);
+        slider.attributes.class.textContent += " no-click";
+    
     }
 })
 
@@ -51,9 +48,6 @@ sign_up.addEventListener('click', () => {
             sign.style.opacity = opa;
         }, 0.2);
 
-        clearInterval(stop);
-        setTimeout(() => {
-        }, 100);
     } else {
         let opo = 2;
         stop = setInterval(() => {

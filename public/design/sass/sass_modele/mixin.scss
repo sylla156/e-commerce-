@@ -151,3 +151,14 @@
         text-decoration: none;
     }
 }
+
+@mixin invalid{
+    background-color: rgba(243, 6, 6, 0.432);
+    color: rgb(172, 0, 0);
+}
+
+
+@mixin valid{
+    background-color: rgba(152, 253, 0, 0.349);
+    color: green;
+}
