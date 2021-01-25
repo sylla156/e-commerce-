@@ -100,6 +100,13 @@ $user_info_all= $_SESSION['user_info'][0];
         </div>
     </div>
 
+    <script>
+        let all_error_number = 0;
+        if(location.href ==  "http://localhost:8800/inscription" || location.href ==  "http://localhost:8800/connexion"){
+            
+            location.href = "http://localhost:8800/error";
+        }
+    </script>
 
     <?php
     
