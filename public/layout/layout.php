@@ -30,6 +30,7 @@
                 </form>
             </div>
 
+
             <div class="first">
 
                 <div class="head_main--basket element">
@@ -146,7 +147,6 @@ $user_info_all= $_SESSION['user_info'][0];
 if(isset($container)){
     echo $container;
 }
-
 
 ?>
 
