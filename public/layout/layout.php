@@ -1,3 +1,9 @@
+<!--   ici j'ai fait un simple code qui affiche deux code different en fonction d'une session qui contient les information de utilisateur -->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,12 +73,16 @@
 
 
     <div class="slider no-click">
-        <?php for ($i=0; $i <15 ; $i++) { 
+        <?php
+
+use aps\redirection;
+
+for ($i=0; $i <15 ; $i++) { 
               echo "<p>categorie$i</p>";
            } ?>
     </div>
 
-
+<!-- le debut du code est le desig  principale avec les scss et javascript et htm  et ensuite j'ai fait la condition en function de a session qui contient les information de utlisateur-->
 <?php  if(!empty($_SESSION['user_info'])){
 $user_info_all= $_SESSION['user_info'][0];
     ?>
@@ -80,7 +90,8 @@ $user_info_all= $_SESSION['user_info'][0];
 
 
         <div class="sign_element--first sign_element">
-            <a href="/connexion"><p><img src="picture/user.png" alt=""></p>
+            <a href="/
+account info"><p><img src="picture/user.png" alt=""></p>
             <p><?=$user_info_all[1]?></p></a>
         </div>
         <hr>
@@ -101,11 +112,12 @@ $user_info_all= $_SESSION['user_info'][0];
         </div>
     </div>
 
+    <!-- ici je vais une redirection via javascript pour rediriger use an cas si il veut aller sur le lien de connecton avec un methode static qui se trouve dans modele-->
     <script>
         let all_error_number = 0;
-        if(location.href ==  "http://localhost:8800/inscription" || location.href ==  "http://localhost:8800/connexion"){
+        if(location.href ==  "<?=redirection::redirect() ?>/inscription" || location.href ==  "<?=redirection::redirect() ?>/connexion"){
             
-            location.href = "http://localhost:8800/error";
+            location.href = "<?=redirection::redirect() ?>/error";
         }
     </script>
 
@@ -129,13 +141,13 @@ $user_info_all= $_SESSION['user_info'][0];
       <hr>
 
       <div class="sign_element--thrid sign_element">
-      <a href="/commande"><p><img src="/picture/order.png" alt=""></p>
+      <a href="/connexion"><p><img src="/picture/order.png" alt=""></p>
       <p>   vos commande</p></a>
       </div>
       
       <div class="sign_element--fourth sign_element">
-      <a href="/connexion"><p><img src="picture/heart.png" alt=""></p>
-      <p>   vos favoris</p> </a>
+      <a href="/favoris"><p><img src="picture/heart.png" alt=""></p>
+      <p> vos favoris</p> </a>
       </div>
   </div>
   <?php
