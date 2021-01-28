@@ -2,7 +2,7 @@
 
 use aps\connexion;
 use aps\filters;
-
+use aps\redirection;
 
 if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom']) and  isset($_POST['email']) ){
     $email = $_POST['email'];
@@ -16,14 +16,18 @@ if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom'
         
         $db->insere_p($nom,$prenom,$email,$password);
 
+
+        // c'est ici ma redirection vas se passe
+        $redirect = redirection::redirect();
         $alert ="<div class=\"best\">
         <p>
             inscription perfect
         </p>
     </div>
     <script> 
-    location.href = \"http://localhost:8800/connexion\";
-    alert('en plein dedans');
+debugger
+    
+    location.href = \"$redirect/connexion\";
     </script>";
     }
 
