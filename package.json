@@ -4,8 +4,11 @@
   "description": " un simple site de e-commerce ",
   "main": "index.js",
   "scripts": {
-    "sass":"sass public/design/sass/style.scss:public/design/style/style.css  --watch  --no-source-map -s compressed  "
+    "sass": "sass public/design/sass/style.scss:public/design/style/style.css  --watch  --no-source-map -s compressed  "
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.32.5"
+  }
 }
