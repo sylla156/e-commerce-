@@ -225,23 +225,25 @@ span {
     }
 }
 
-//______connexion
+//______en dessous se trouve les template de la partir connexion et inscritpion qui ont les meme class
+
 
 .signUP {
     @include flex(column);
     height: 80vh;
     
-        h1{
-
-            font-family: cursive;
-            text-transform: capitalize;
-            text-decoration: underline;
-        }
+    h1{
+        
+        font-family: cursive;
+        text-transform: capitalize;
+        text-decoration: underline;
+    }
     
-
+    
     &_main {
-        background-color: map-get($palette_dark, second_element);
         @include media(50%, 80%, 80%);
+        @include mediaH(100%,100%,100%);
+        background-color: map-get($palette_dark, second_element);
         height: 60vh;
         @include flex;
 
@@ -279,6 +281,9 @@ span {
         }
     }
 }
+
+// ___________en dessous se trouve les border en cas erreur et de success lors de la saisir par l'utlilisateur 
+
 
 .shit{
      @include invalid;

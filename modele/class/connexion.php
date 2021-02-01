@@ -14,16 +14,18 @@ class connexion{
 
     public  function connecter(){
         try {
-            $this->db = new PDO("mysql:host=localhost;dbname=commerce","root");
+            $this->db = new PDO("mysql:host=127.0.0.1;dbname=e-commerce","root");
             $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 
             $sql = "CREATE  TABLE IF NOT EXISTS personne(
                 id int unsigned PRIMARY KEY AUTO_INCREMENT,
-                nom varchar(30),
-                prenom varchar(30),
-                email varchar(30),
-                pass varchar(30))";
+                nom varchar(30) NOT NULL,
+                prenom varchar(30) NOT NULL,
+                tel int(30) unsigned NOT NULL, 
+                email varchar(30) NOT NULL,
+                pass varchar(100) NOT NULL,
+                UNIQUE(email))";
 
             $this->db->exec($sql);
 
@@ -34,12 +36,12 @@ class connexion{
 
 
 
-    public function insere_p(string $nom,string $prenom,string $email,string $password){
+    public function insere_p(string $nom,string $prenom,int $tel,string $email,string $password){
         
-            $this->connecter();            
-            $go = $this->db->prepare("INSERT INTO `personne` (`id`, `nom`, `prenom`, `email`, `pass`) VALUES (NULL, ?, ?, ?, ?)");
+            $this->connecter();
+            $go = $this->db->prepare("INSERT INTO `personne` (`id`, `nom`, `prenom`,`tel`, `email`, `pass`) VALUES (NULL,?,?,?,?,?)");
     
-            $go->execute(array($nom,$prenom,$email,self::or_hash($password)));
+            $go->execute(array($nom,$prenom,(int)$tel,$email,self::or_hash($password)));
             return true;
        
     }

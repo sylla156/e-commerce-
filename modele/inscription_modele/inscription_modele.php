@@ -4,9 +4,10 @@ use aps\connexion;
 use aps\filters;
 use aps\redirection;
 
-if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom']) and  isset($_POST['email']) ){
+if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom']) and  isset($_POST['email']) and isset($_POST['tel']) ){
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $tel = $_POST["tel"];
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
 
@@ -14,7 +15,7 @@ if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom'
     
     if(preg_match("/^[a-z ,.'-]+$/i",$nom)   and preg_match("/^[a-z ,.'-]+$/i",$prenom) and preg_match("/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/",$email)  and preg_match("/(?=.*[0-9])/",$password) ){
         
-        $db->insere_p($nom,$prenom,$email,$password);
+        $db->insere_p($nom,$prenom,$tel,$email,$password);
 
 
         // c'est ici ma redirection vas se passe
@@ -27,7 +28,7 @@ if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom'
     <script> 
 debugger
     
-    location.href = \"$redirect/connexion\";
+    //location.href = \"$redirect/connexion\";
     </script>";
     }
 
