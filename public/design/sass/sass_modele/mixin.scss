@@ -152,6 +152,15 @@
     }
 }
 
+
+
+@mixin  link{
+    a{
+        color:map-get($palette_regular,fifth_element);
+        text-decoration:underline;
+    }
+}
+
 @mixin invalid{
     background-color: rgba(243, 6, 6, 0.432);
     color: rgb(172, 0, 0);

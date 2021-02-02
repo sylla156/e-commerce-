@@ -225,20 +225,20 @@ span {
     }
 }
 
-//______connexion
+//______ici en dessous c'est la partie de connexion et inscription
 
 .signUP {
     @include flex(column);
     height: 80vh;
     
-        h1{
-
-            font-family: cursive;
-            text-transform: capitalize;
-            text-decoration: underline;
-        }
+    h1{
+        
+        font-family: cursive;
+        text-transform: capitalize;
+        text-decoration: underline;
+    }
     
-
+    
     &_main {
         background-color: map-get($palette_dark, second_element);
         @include media(50%, 80%, 80%);
@@ -249,7 +249,7 @@ span {
             border: none;
             outline: none;
             @include media(40vw, 40vw, 60vw);
-            @include mediaH(40px, 40px, 40px);
+            height: 100%;
             border-bottom: 2px solid map-get($palette_regular, second_element);
             transition: all 1s;
         }
@@ -277,8 +277,16 @@ span {
                 background-color: white;
             }
         }
+
+        &--link{
+            @include link();
+            font-size: small;
+        }
     }
 }
+
+
+// ici c'est la partie pour si la connexion ou l'inscription passe ou passe pas
 
 .shit{
      @include invalid;
