@@ -1,6 +1,6 @@
 <?php
 
-use aps\connexion;
+use aps\database\verifier;
 use aps\filters;
 
 
@@ -8,7 +8,7 @@ if (isset($_POST['email']) and isset($_POST['password'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $db = new connexion();
+    $db = new verifier();
     $user_info = $db->verifie_p(filters::filters_email($email),(string)$password);
 
     if($user_info != false || $user_info != null){

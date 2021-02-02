@@ -1,15 +1,19 @@
 <?php
 
-use aps\connexion;
+use aps\database\insere;
 use aps\filters;
 use aps\redirection;
+
+
 if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom']) and  isset($_POST['email']) and isset($_POST['tel']) ){
+    
+    
     $email = $_POST['email'];
     $password = $_POST['password'];
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
     $tel = (int) $_POST['tel'];
-    $db = new connexion();
+    $db = new insere();
     
     if(preg_match("/^[a-z ,.'-]+$/i",$nom)   and preg_match("/^[a-z ,.'-]+$/i",$prenom) and preg_match("/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/",$email)  and preg_match("/(?=.*[0-9])/",$password) ){
         

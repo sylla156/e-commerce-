@@ -11,7 +11,7 @@ body {
 }
 
 .head {
-  
+
     @include head();
 
     &_main {
@@ -75,7 +75,7 @@ body {
             &--1 {
                 height: 28px;
                 flex: 1;
-                outline: border;
+                outline: 0;
                 color: white;
 
                 input {
@@ -108,7 +108,7 @@ body {
     border-radius: 30px;
     @include media(25%, 40%, 80%);
     margin: 10px;
-    z-index:2;
+    z-index: 2;
 
 }
 
@@ -150,10 +150,10 @@ span {
 
 
 .sign {
-    
+
     &_element {
         margin: 30px 10px;
-        @include media(30px,20px,10px);
+        @include media(30px, 20px, 10px);
 
 
         &--first {
@@ -230,18 +230,20 @@ span {
 .signUP {
     @include flex(column);
     height: 80vh;
-    
-    h1{
-        
+
+    h1 {
+
         font-family: cursive;
         text-transform: capitalize;
         text-decoration: underline;
     }
-    
-    
+
+
     &_main {
         background-color: map-get($palette_dark, second_element);
         @include media(50%, 80%, 80%);
+        @include mediaH(50%, 80%, 1600px, landscape);
+
         height: 60vh;
         @include flex;
 
@@ -254,22 +256,23 @@ span {
             transition: all 1s;
         }
 
-        input:invalid{
+        input:invalid {
             border-bottom: 3px solid map-get($palette_regular, fifth_element);
             transition: all 1s;
         }
 
-       
 
-        input:valid{
+
+        input:valid {
             border-bottom: 3px solid map-get($palette_regular, sixth_element);
             transition: all 1s;
         }
 
 
-        p{
+        p {
             text-align: center;
-            button{
+
+            button {
                 border-radius: 20px;
                 padding: 10px;
                 border: none;
@@ -278,7 +281,7 @@ span {
             }
         }
 
-        &--link{
+        &--link {
             @include link();
             font-size: small;
         }
@@ -288,22 +291,24 @@ span {
 
 // ici c'est la partie pour si la connexion ou l'inscription passe ou passe pas
 
-.shit{
-     @include invalid;
-     text-align: center;
-     margin: 1%  8%;
-     p{
-         padding: 10px;
-     }
+.shit {
+    @include invalid;
+    text-align: center;
+    margin: 1% 8%;
+
+    p {
+        padding: 10px;
+    }
 }
 
 
 
-.best{
+.best {
     @include valid;
     text-align: center;
-    margin: 1%  8%;
-    p{
+    margin: 1% 8%;
+
+    p {
         padding: 10px;
     }
 }
