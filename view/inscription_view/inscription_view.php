@@ -11,6 +11,7 @@ use aps\redirection;
 
     <p class="signUP_title">
     <h1>inscription</h1>
+    <span style="transition:all 0.2s"></span>
     </p>
 
 
@@ -19,7 +20,6 @@ use aps\redirection;
         <form action="/inscription" method="POST">
 
             <input type="text" placeholder="  nom" name="nom">
-
             <br><br>
 
             <input type="text" placeholder="  prenom" name="prenom">

@@ -236,13 +236,19 @@ span {
         font-family: cursive;
         text-transform: capitalize;
         text-decoration: underline;
+
+    }
+
+    span{
+        background-color:#f97b68f7;
+        @include invalid();
     }
 
 
     &_main {
         background-color: map-get($palette_dark, second_element);
         @include media(50%, 80%, 80%);
-        @include mediaH(50%, 80%, 1600px, landscape);
+        @include mediaH(90%, 80%, 1600px, landscape);
 
         height: 60vh;
         @include flex;
@@ -253,20 +259,10 @@ span {
             @include media(40vw, 40vw, 60vw);
             height: 100%;
             border-bottom: 2px solid map-get($palette_regular, second_element);
-            transition: all 1s;
+            transition: background 0.5s;
         }
 
-        input:invalid {
-            border-bottom: 3px solid map-get($palette_regular, fifth_element);
-            transition: all 1s;
-        }
-
-
-
-        input:valid {
-            border-bottom: 3px solid map-get($palette_regular, sixth_element);
-            transition: all 1s;
-        }
+     
 
 
         p {
