@@ -196,7 +196,7 @@ function view(){
     if (nombre1 == false){
         all_input[4].type = "text";
         nombre1 = true;
-        first_view.style.background = "#0de640cd"
+        first_view.style.background = "#48cae4";
     }else if(nombre1 == true){
         all_input[4].type = "password";
         nombre1 = false;
@@ -210,7 +210,7 @@ function view2(){
     if (nombre2 == false){
         all_input[5].type = "text";
         nombre2 = true;
-        second_view.style.background = "#0de640cd";
+        second_view.style.background = "#48cae4";
         
     }else if(nombre2 == true){
         all_input[5].type = "password";

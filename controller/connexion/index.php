@@ -17,3 +17,5 @@ require_once $chemin1;
 
 
 require_once $chemin2;
+?>
+<script src="script/connexion_validation.js"></script>

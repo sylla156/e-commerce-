@@ -240,10 +240,11 @@ span {
 
     }
 
-    span {
+    span { //la partie alert  de la partir  d'incription ou de connexion
         background-color: #f97b68f7;
         @include invalid();
-        font-size: small;
+        font-size: 2.5vh;
+        margin: 0 10px;
     }
 
 
