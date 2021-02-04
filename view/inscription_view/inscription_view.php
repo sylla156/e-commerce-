@@ -11,7 +11,7 @@ use aps\redirection;
 
     <p class="signUP_title">
     <h1>inscription</h1>
-    <span style="transition:all 0.2s"></span>
+    <span style="transition:all 0.2s" class="span"></span>
     </p>
 
 
@@ -34,7 +34,11 @@ use aps\redirection;
 
             <br><br>
 
-            <input type="password" placeholder=" password" name="password">
+            <input type="password" placeholder=" password" ><span class="spanS1">👁</span>
+
+            <br><br>
+
+            <input type="password" placeholder=" verifiez password" name="password"><span class="spanS2">👁</span>
 
             <br><br>
 

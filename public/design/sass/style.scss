@@ -27,6 +27,7 @@ body {
             font-size: 20px;
             font-weight: bold;
             font-family: cursive;
+            
         }
 
         .element {
@@ -239,8 +240,8 @@ span {
 
     }
 
-    span{
-        background-color:#f97b68f7;
+    span {
+        background-color: #f97b68f7;
         @include invalid();
         font-size: small;
     }
@@ -248,22 +249,29 @@ span {
 
     &_main {
         background-color: map-get($palette_dark, second_element);
-        @include media(50%, 80%, 80%);
-        @include mediaH(90%, 80%, 1600px, landscape);
-
-        height: 60vh;
+        height: 100%;
+        padding: 20px 0px;
         @include flex;
+        @include media(60%, 90%, 90%);
+        @include mediaH(100%, 90%, 1700px, landscape);
 
         input {
             border: none;
             outline: none;
-            @include media(40vw, 40vw, 60vw);
+            @include media(50vw, 50vw, 70vw);
             height: 100%;
             border-bottom: 2px solid map-get($palette_regular, second_element);
             transition: background 0.5s;
         }
 
-     
+
+        span {
+            background: white;
+            margin:0 0 0 10px;
+            padding: 6px;
+        }
+
+
 
 
         p {
