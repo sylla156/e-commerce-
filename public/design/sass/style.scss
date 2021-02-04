@@ -27,7 +27,7 @@ body {
             font-size: 20px;
             font-weight: bold;
             font-family: cursive;
-            
+
         }
 
         .element {
@@ -105,7 +105,7 @@ body {
 
 .slider {
     position: absolute;
-    background-color: whitesmoke;
+    background-color: #f8f9fa;
     border-radius: 30px;
     @include media(25%, 40%, 80%);
     margin: 10px;
@@ -240,7 +240,8 @@ span {
 
     }
 
-    span { //la partie alert  de la partir  d'incription ou de connexion
+    span {
+        //la partie alert  de la partir  d'incription ou de connexion
         background-color: #f97b68f7;
         @include invalid();
         font-size: 2.5vh;
@@ -268,7 +269,7 @@ span {
 
         span {
             background: white;
-            margin:0 0 0 10px;
+            margin: 0 0 0 10px;
             padding: 6px;
         }
 
@@ -316,5 +317,67 @@ span {
 
     p {
         padding: 10px;
+    }
+}
+
+
+
+//pour le panier
+
+
+.panier {
+    height: 80vh;
+    overflow: hidden;
+    margin: 20px 20px;
+    position: absolute;
+    top: 60px;
+
+    @include media(97%, 96%, 94%, 90%);
+
+    &_main {
+        @include flex(row, space-between, center);
+
+        p.first {//panier
+            padding: 10px 20px;
+            margin:10px 0 0 10px;
+            font-weight: bold;
+            font-style: italic;
+            text-transform: capitalize;
+            background-color: #0077b6;
+            border-radius: 15px;
+            color: #ffffff;
+        }
+
+        p:last-child {//img close
+            margin: 10px 15px;
+            text-align: end;
+            margin: 10px;
+            padding: 10px 20px;
+
+            @include dynamic(mode("dark"),"yes","none")
+        }
+
+    }
+
+
+
+    &_book {
+        &--first {
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+    }
+
+    &_second {
+        @include flex();
+        height: 50vh;
+
+        img {
+            @include media(30vh, 25vh, 15vh);
+            padding: 30px;
+            background-color: #e9ecef;
+            border-radius: 40%;
+        }
     }
 }

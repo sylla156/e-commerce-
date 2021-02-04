@@ -1,5 +1,7 @@
 <!--   ici j'ai fait un simple code qui affiche deux code different en fonction d'une session qui contient les information de utilisateur -->
-
+<?php
+use aps\redirection;
+?>
 
 
 
@@ -40,7 +42,7 @@
             <div class="first">
 
                 <div class="head_main--basket element">
-                    <img src="picture/basket.png" alt="panier">
+                   <a href="<?=redirection::redirect()?>/panier" class="panier_self"><img src="picture/basket.png" alt="panier"></a>
                 </div>
 
                 <div class="head_main--user element" id="sign">
@@ -75,7 +77,6 @@
     <div class="slider no-click">
         <?php
 
-use aps\redirection;
 
 for ($i=0; $i <15 ; $i++) { 
               echo "<p>categorie$i</p>";

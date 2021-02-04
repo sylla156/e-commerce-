@@ -7,7 +7,7 @@
 
     &:hover {
         @if ($dg=="yes") {
-            background-color: map-get($palette, first_element);
+            background-color: map-get($palette, second_element);
         }
 
         display: inline;
@@ -87,7 +87,7 @@
         }
     }
 
-    @media all and (max-width:799px) and (min-width: 280px) {
+    @media all and (max-width:799px) and (min-width: 0px) {
         &_main{
             &--search{
                 display: none;
@@ -103,15 +103,15 @@
 
 @mixin footer {
     background-color: map-get($palette_dark, ninth_element);
-    position: fixed;
-    bottom: 0%;
+    position:fixed;
+    bottom: 0;
     width: 100%;
     font-size: 19px;
     color: map-get($palette_regular, first_element);
 }
 
 
-@mixin media($big,$medium,$small){
+@mixin media($big,$medium,$small,$x_smal:$small){
     
     @media all and (min-width:1024px) {
         width: $big;
@@ -121,8 +121,25 @@
       width:$medium;
     }
 
-    @media all and  (max-width:799px) and (min-width: 80px) {
-      width: $small;
+   
+
+    @if($x_smal != $small){
+
+        @media all and  (max-width:799px) and (min-width: 554px) {
+            width: $small;
+          }
+
+
+        @media all and (max-width:555px) and (min-height:80px) {
+            width: $x_smal;
+        }
+    }@else{
+
+
+        @media all and  (max-width:799px) and (min-width: 80px) {
+            width: $small;
+          }
+        
     }
 
 }

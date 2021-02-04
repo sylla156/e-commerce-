@@ -5,34 +5,26 @@ menu.addEventListener('click', () => {
     if (slider.attributes.class.textContent != "slider") {
         menu.style.transform = "rotate(90deg)";
         slider.attributes.class.textContent = "slider";
-        let op = 0;
-        stop = setInterval(() => {
-            op += 0.1;
-            slider.style.opacity = op;
-        }, 0.2);
+        slider.style.opacity = 1;
 
-        
+
     } else {
         menu.style.transform = "rotate(180deg)";
-        let op = 2;
-        stop = setInterval(() => {
-            op -= 0.1;
-            slider.style.opacity = op;
-        }, 0.2);
+        slider.style.opacity = 0;
 
-        clearInterval(stop);
         slider.attributes.class.textContent += " no-click";
-    
+
     }
 })
 
 window.addEventListener('resize', faire(menu));
 
 menu.style.opacity = 1;
+
 function faire(menu) {
     if (innerWidth > 1024 && location.pathname == "/") {
         menu.click();
-    } 
+    }
 }
 
 
@@ -42,20 +34,11 @@ let sign_up = document.querySelector('#sign');
 sign_up.addEventListener('click', () => {
     if (sign.attributes.class.textContent != "sign") {
         sign.attributes.class.textContent = "sign";
-        let opa = 0;
-        stop = setInterval(() => {
-            opa += 0.1;
-            sign.style.opacity = opa;
-        }, 0.2);
+        sign.style.opacity = 1;
 
     } else {
-        let opo = 2;
-        stop = setInterval(() => {
-            opo -= 0.1;
-            sign.style.opacity = opo;
-        }, 0.2);
+        sign.style.opacity = 0;
 
-        clearInterval(stop);
         sign.attributes.class.textContent += " no-click";
     }
 })
@@ -81,5 +64,3 @@ icone_back.addEventListener('click', () => {
     head_main.attributes.class.textContent = "head_main";
     head_second.style.display = "none";
 })
-
-

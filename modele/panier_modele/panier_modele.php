@@ -1,1 +1,0 @@
-panier_modele
