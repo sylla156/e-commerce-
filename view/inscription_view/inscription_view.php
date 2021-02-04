@@ -19,26 +19,26 @@ use aps\redirection;
 
         <form action="/inscription" method="POST">
 
-            <input type="text" placeholder="  nom" name="nom">
+            <input class ="input" type="text" placeholder="  nom" name="nom">
             <br><br>
 
-            <input type="text" placeholder="  prenom" name="prenom">
-
-            <br><br>
-
-            <input type="tel" placeholder="  telephone" name="tel">
+            <input class ="input" type="text" placeholder="  prenom" name="prenom">
 
             <br><br>
 
-            <input type="email" placeholder="  email" name="email">
+            <input class ="input" type="tel" placeholder="  telephone" name="tel">
 
             <br><br>
 
-            <input type="password" placeholder=" password" ><span class="spanS1">👁</span>
+            <input class ="input" type="email" placeholder="  email" name="email">
 
             <br><br>
 
-            <input type="password" placeholder=" verifiez password" name="password"><span class="spanS2">👁</span>
+            <input class ="input" type="password" placeholder=" password" name="password_test"><span class="spanS1">👁</span>
+
+            <br><br>
+
+            <input class ="input" type="password" placeholder=" verifiez password" name="password"><span class="spanS2">👁</span>
 
             <br><br>
 

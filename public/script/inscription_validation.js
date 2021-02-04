@@ -1,27 +1,27 @@
 // je selection pour mes input d a page
-let all_input = document.querySelectorAll('input');
+let all_input = document.querySelectorAll('.input');
 let alert_danger = document.querySelector('.span');
 let compt_danger = false;
 
 
 
 // pour le nom et rien que pour le nom
-all_input[3].addEventListener('change', faire1);
+all_input[0].addEventListener('change', faire1);
 
 // pour le prenom et rien que pour le prenom
-all_input[4].addEventListener('change', faire1);
+all_input[1].addEventListener('change', faire1);
 
 //pour le telephone et rien que pour le telephone
-all_input[5].addEventListener('change', faire2);
+all_input[2].addEventListener('change', faire2);
 
 //pour email et rien que pour email
-all_input[6].addEventListener('change', faire3);
+all_input[3].addEventListener('change', faire3);
 
 //le premier password pour le test 
-all_input[7].addEventListener('change', faire4)
+all_input[4].addEventListener('change', faire4)
 
 //le derniere password celui qui sera envoyer a la base de donnee
-all_input[8].addEventListener('change', faire5);
+all_input[5].addEventListener('change', faire5);
 
 
 function valid(element) {
@@ -98,6 +98,9 @@ function faire2(e) {
             danger("le numero telephone doit etre que des chiffre et pas d'espace ☎️");
             error(e);
 
+        }else{
+            reset(e);
+            valid(e);
         }
 
     } else if (contenue.length < 8 || contenue.length > 10 || contenue.length == 9) {
@@ -138,7 +141,7 @@ function faire3(e) {
 
 
 function faire5(e) {
-    let first_password = all_input[7].value
+    let first_password = all_input[4].value
     let second_password = e.target.value;
     if (second_password != "") {
         if (first_password != second_password) {
@@ -157,7 +160,6 @@ function faire5(e) {
 }
 
 
-
 function faire4(e) {
     let contenue = e.target.value;
     let taille = e.target.value.length;
@@ -167,7 +169,7 @@ function faire4(e) {
             danger("le password doit etre plus de 8 elements");
             error(e);
     
-        }else if (taille > 8){
+        }else if (taille >= 8){
             reset(e);
             valid(e);
         }
@@ -175,6 +177,7 @@ function faire4(e) {
         reset(e);
     }
 }
+
 
 /////////////////////////////////////////////////////////
 
@@ -191,11 +194,11 @@ let nombre2 = false;
 
 function view(){
     if (nombre1 == false){
-        all_input[7].type = "text";
+        all_input[4].type = "text";
         nombre1 = true;
         first_view.style.background = "#0de640cd"
     }else if(nombre1 == true){
-        all_input[7].type = "password";
+        all_input[4].type = "password";
         nombre1 = false;
         first_view.style.background = "#ffffff"
     }
@@ -205,12 +208,12 @@ function view(){
 
 function view2(){
     if (nombre2 == false){
-        all_input[8].type = "text";
+        all_input[5].type = "text";
         nombre2 = true;
-        second_view.style.background = "#0de640cd":
+        second_view.style.background = "#0de640cd";
         
     }else if(nombre2 == true){
-        all_input[8].type = "password";
+        all_input[5].type = "password";
         nombre2 = false;
         second_view.style.background = "#ffffff"
     }
