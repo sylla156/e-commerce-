@@ -19,8 +19,8 @@ use aps\redirection;
     <header class="head">
         <div class="head_main">
             <div class="first">
-                <div class="head_main--menu element">
-                    <img src="picture/list.png" alt="menu" id="menu">
+                <div class="head_main--menu element" id="menu">
+                    <img src="picture/icone/list.png" alt="menu">
                 </div>
 
                 <div class="head_main--title  element">
@@ -29,7 +29,7 @@ use aps\redirection;
             </div>
 
             <div class="head_main--searchI element iconeS">
-                <img src="picture/search.png" alt="recherche">
+                <img src="picture/icone/search.png" alt="recherche">
             </div>
             <div class="head_main--search search">
                 <form action="" method="GET²">
@@ -42,11 +42,12 @@ use aps\redirection;
             <div class="first">
 
                 <div class="head_main--basket element">
-                   <a href="<?=redirection::redirect()?>/panier" class="panier_self"><img src="picture/basket.png" alt="panier"></a>
+                    <a href="<?=redirection::redirect()?>/panier" class="panier_self"><img
+                            src="picture/icone/basket.png" alt="panier"></a>
                 </div>
 
                 <div class="head_main--user element" id="sign">
-                    <img src="picture/user.png" alt="sign up">
+                    <img src="picture/icone/user.png" alt="sign up">
                 </div>
             </div>
         </div>
@@ -55,7 +56,7 @@ use aps\redirection;
         <div class="head_second ">
 
             <button>
-                <img src="  picture/direction.png" alt="sortir" srcset="" class="first_back">
+                <img src="  picture/icone/direction.png" alt="sortir" srcset="" class="first_back">
             </button>
             <div class="head_second--search">
 
@@ -66,7 +67,7 @@ use aps\redirection;
                 </div>
                 <div class="head_second--search--2">
 
-                    <button type="submit"><img src="picture/search.png" alt="recherche"></button>
+                    <button type="submit"><img src="picture/icone/search.png" alt="recherche"></button>
                 </div>
                 </form>
             </div>
@@ -74,17 +75,17 @@ use aps\redirection;
     </header>
 
 
-    <div class="slider no-click">
+    <div class="slider no-click" >
         <?php
 
 
-for ($i=0; $i <15 ; $i++) { 
+for ($i=0; $i <10 ; $i++) { 
               echo "<p>categorie$i</p>";
            } ?>
     </div>
 
-<!-- le debut du code est le desig  principale avec les scss et javascript et htm  et ensuite j'ai fait la condition en function de a session qui contient les information de utlisateur-->
-<?php  if(!empty($_SESSION['user_info'])){
+    <!-- le debut du code est le desig  principale avec les scss et javascript et htm  et ensuite j'ai fait la condition en function de a session qui contient les information de utlisateur-->
+    <?php  if(!empty($_SESSION['user_info'])){
 $user_info_all= $_SESSION['user_info'][0];
     ?>
     <div class="sign no-click">
@@ -92,32 +93,41 @@ $user_info_all= $_SESSION['user_info'][0];
 
         <div class="sign_element--first sign_element">
             <a href="/
-account info"><p><img src="picture/user.png" alt=""></p>
-            <p><?=$user_info_all[1]?></p></a>
+account info">
+                <p><img src="picture/icone/user.png" alt=""></p>
+                <p><?=$user_info_all[1]?></p>
+            </a>
         </div>
         <hr>
         <div class="sign_element--second sign_element">
-            <a href="/?status=yes"><p><img style ="transform:rotate(180deg)" src="picture/sign_out.png" alt=""></p>
-            <p style="text-indent:2px">deconection</p></a>
+            <a href="/?status=yes">
+                <p><img style="transform:rotate(180deg)" src="picture/icone/sign_out.png" alt=""></p>
+                <p style="text-indent:2px">deconection</p>
+            </a>
         </div>
         <hr>
 
         <div class="sign_element--thrid sign_element">
-        <a href="/commande"><p><img src="/picture/order.png" alt=""></p>
-        <p>   vos commande</p></a>
+            <a href="/commande">
+                <p><img src="/picture/icone/order.png" alt=""></p>
+                <p> vos commande</p>
+            </a>
         </div>
 
         <div class="sign_element--fourth sign_element">
-        <a href="/favoris"><p><img src="picture/heart.png" alt=""></p>
-        <p>   vos favoris</p> </a>
+            <a href="/favoris">
+                <p><img src="picture/icone/heart.png" alt=""></p>
+                <p> vos favoris</p>
+            </a>
         </div>
     </div>
 
     <!-- ici je vais une redirection via javascript pour rediriger use an cas si il veut aller sur le lien de connecton avec un methode static qui se trouve dans modele-->
     <script>
         let all_error_number = 0;
-        if(location.href ==  "<?=redirection::redirect() ?>/inscription" || location.href ==  "<?=redirection::redirect() ?>/connexion"){
-            
+        if (location.href == "<?=redirection::redirect() ?>/inscription" || location.href ==
+            "<?=redirection::redirect() ?>/connexion") {
+
             location.href = "<?=redirection::redirect() ?>/error";
         }
     </script>
@@ -127,47 +137,55 @@ account info"><p><img src="picture/user.png" alt=""></p>
 }else{
     
     ?>
-<div class="sign no-click">
-    
-    
-      <div class="sign_element--first sign_element">
-          <a href="/connexion"><p><img src="picture/user.png" alt=""></p>
-          <p>connexion</p></a>
-      </div>
-      <hr>
-      <div class="sign_element--second sign_element">
-          <a href="/inscription"><p><img src="picture/sign_out.png" alt=""></p>
-          <p>inscription</p></a>
-      </div>
-      <hr>
+    <div class="sign no-click">
 
-      <div class="sign_element--thrid sign_element">
-      <a href="/connexion"><p><img src="/picture/order.png" alt=""></p>
-      <p>   vos commande</p></a>
-      </div>
-      
-      <div class="sign_element--fourth sign_element">
-      <a href="/favoris"><p><img src="picture/heart.png" alt=""></p>
-      <p> vos favoris</p> </a>
-      </div>
-  </div>
-  <?php
-}
-?>
 
-    <?php
-
-if(isset($container)){
-    echo $container;
-}
-
-?>
-
-    <footer class="footer">
-        <div class="footer_one">
-            <p class="footer_one--element">mon footer</p>
+        <div class="sign_element--first sign_element">
+            <a href="/connexion">
+                <p><img src="picture/icone/user.png" alt=""></p>
+                <p>connexion</p>
+            </a>
         </div>
-    </footer>
+        <hr>
+        <div class="sign_element--second sign_element">
+            <a href="/inscription">
+                <p><img src="picture/icone/sign_out.png" alt=""></p>
+                <p>inscription</p>
+            </a>
+        </div>
+        <hr>
+
+        <div class="sign_element--thrid sign_element">
+            <a href="/connexion">
+                <p><img src="/picture/icone/order.png" alt=""></p>
+                <p> vos commande</p>
+            </a>
+        </div>
+
+        <div class="sign_element--fourth sign_element">
+            <a href="/favoris">
+                <p><img src="picture/icone/heart.png" alt=""></p>
+                <p> vos favoris</p>
+            </a>
+        </div>
+    </div>
+    <?php
+}
+?>
+
+<br><br><br>
+<div class="resize-bloc">
+    <div>
+
+         <?php
+         //view of carousel of ma page
+          if(isset($container)){
+                echo $container;
+            }
+         ?>
+    </div>
+
+</div>
 </body>
 <script src="script/slide.js"></script>
 

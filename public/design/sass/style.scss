@@ -19,6 +19,9 @@ body {
         div.first {
             @include flex(row, space-around);
             flex: 1;
+           #menu{
+               padding: 10px;
+           }
         }
 
         @include flex(row, space-around);
@@ -45,7 +48,7 @@ body {
                 width: 80%;
                 height: 20px;
                 outline: none;
-                border: none;
+                border: 1px solid #00000089;
             }
 
             &--2 {
@@ -104,13 +107,23 @@ body {
 
 
 .slider {
-    position: absolute;
-    background-color: #f8f9fa;
-    border-radius: 30px;
-    @include media(25%, 40%, 80%);
-    margin: 10px;
+    background-color:map-get($palette_dark,third_element);
+    // background-color: #0077b6;
+    top: 10vh;
+    position: fixed;
+    transition: all 0.4s;
+    transition-timing-function:ease-out;
+    height: 100vh;
+    overflow: hidden;
+    width: 0%;
     z-index: 2;
 
+    p{
+        display: inline;
+        padding:0 0 0 20px;
+        @include flex(row,flex-start);
+    }
+   
 }
 
 .no-click {
@@ -120,27 +133,18 @@ body {
 }
 
 
+
+
 .sign {
-    position: absolute;
-    border-radius: 30px;
-    @include media(25%, 40%, 70%);
-    margin: 10px;
+    position: fixed;
+    transition: all 0.4s;
+    transition-timing-function:ease-out;
+    width: 1%;
     right: 0;
-    background-color: whitesmoke;
+    top:10vh;
+    background-color: map-get($palette_dark,third_element);
     z-index: 2;
-
-}
-
-.footer {
-    @include footer;
-
-    &_one {
-        &--element {
-            margin: 0 20px;
-            transition: all 0.4s;
-            @include dynamic(mode("dark"), "none", "none");
-        }
-    }
+    height: 100vh;
 }
 
 span {
@@ -324,60 +328,59 @@ span {
 
 //pour le panier
 
+    .panier {
 
-.panier {
-    height: 80vh;
-    overflow: hidden;
-    margin: 20px 20px;
+        overflow: hidden;
+        &_main {
+            @include flex(row, space-between, stretch);
+            width: 100%;
+            padding-left:10px;
+            padding-right: 15px;
+            p.first {
+                //panier
+                padding: 10px 20px;
+                font-weight: bold;
+                font-style: italic;
+                text-transform: capitalize;
+                background-color: #0077b6;
+                border-radius: 15px;
+                color: #ffffff;
+            }
+
+            p:last-child {
+                //img close
+                padding: 10px 20px;
+                @include dynamic(mode("dark"), "yes", "none")
+            }
+
+        }
+
+
+
+        &_book {
+            &--first {
+                text-align: center;
+                font-weight: bold;
+                text-transform: capitalize;
+            }
+        }
+
+        &_second {
+            @include flex();
+            height: 50vh;
+
+            img {
+                @include media(30vh, 25vh, 15vh);
+                padding: 30px;
+                background-color: #e9ecef;
+                border-radius: 40%;
+            }
+        }
+    }
+
+
+.resize-bloc{
     position: absolute;
-    top: 60px;
-
-    @include media(97%, 96%, 94%, 90%);
-
-    &_main {
-        @include flex(row, space-between, center);
-
-        p.first {//panier
-            padding: 10px 20px;
-            margin:10px 0 0 10px;
-            font-weight: bold;
-            font-style: italic;
-            text-transform: capitalize;
-            background-color: #0077b6;
-            border-radius: 15px;
-            color: #ffffff;
-        }
-
-        p:last-child {//img close
-            margin: 10px 15px;
-            text-align: end;
-            margin: 10px;
-            padding: 10px 20px;
-
-            @include dynamic(mode("dark"),"yes","none")
-        }
-
-    }
-
-
-
-    &_book {
-        &--first {
-            text-align: center;
-            font-weight: bold;
-            text-transform: capitalize;
-        }
-    }
-
-    &_second {
-        @include flex();
-        height: 50vh;
-
-        img {
-            @include media(30vh, 25vh, 15vh);
-            padding: 30px;
-            background-color: #e9ecef;
-            border-radius: 40%;
-        }
-    }
+    right: 0;
+    transition: all 0.4s;
 }

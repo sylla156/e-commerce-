@@ -39,7 +39,7 @@
         }
 
         display: inline;
-        color: map-get($palette_dark,first_element);
+        color: map-get($palette_dark, first_element);
         border: map-get($palette, third_element);
         transition: all 0.4s;
         outline: none;
@@ -63,128 +63,189 @@
     padding: 0;
     outline: 0;
     color: map-get($palette_dark, ninth_element);
-    background-color: white;
+    background-color: map-get($palette_dark,first_element);
 }
 
 
 
 @mixin head {
     background-color: map-get($palette_dark, third_element);
+    position: fixed;
+    width:100%;
+    height: 10vh;
 
     @media all and (min-width:1024px) {
-        &_main{
-            &--searchI{
+        &_main {
+            &--searchI {
                 display: none;
             }
         }
     }
 
     @media all and (max-width:1023px) and (min-width: 800px) {
-        &_main{
-            &--searchI{
+        &_main {
+            &--searchI {
                 display: none;
             }
         }
     }
 
     @media all and (max-width:799px) and (min-width: 0px) {
-        &_main{
-            &--search{
+        &_main {
+            &--search {
                 display: none;
             }
 
-            &--searchI{
-                display:inline-block;
+            &--searchI {
+                display: inline-block;
             }
         }
     }
 
 }
 
-@mixin footer {
-    background-color: map-get($palette_dark, ninth_element);
-    position:fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 19px;
-    color: map-get($palette_regular, first_element);
-}
 
+@mixin media($big, $medium, $small, $x_smal:$small) {
 
-@mixin media($big,$medium,$small,$x_smal:$small){
-    
     @media all and (min-width:1024px) {
         width: $big;
     }
 
     @media all and (max-width:1023px) and (min-width: 800px) {
-      width:$medium;
+        width: $medium;
     }
 
-   
 
-    @if($x_smal != $small){
 
-        @media all and  (max-width:799px) and (min-width: 554px) {
+    @if($x_smal !=$small) {
+
+        @media all and (max-width:799px) and (min-width: 554px) {
             width: $small;
-          }
+        }
 
 
         @media all and (max-width:555px) and (min-height:80px) {
             width: $x_smal;
         }
-    }@else{
+    }
+
+    @else {
 
 
-        @media all and  (max-width:799px) and (min-width: 80px) {
+        @media all and (max-width:799px) and (min-width: 80px) {
             width: $small;
-          }
-        
+        }
+
     }
 
 }
 
 
 
-@mixin mediaH($big,$medium,$small,$sens:portrait){
-    
-    @media all   and (orientation: $sens) and (min-height:545px) {
+@mixin mediaH($big, $medium, $small, $sens:portrait) {
+
+    @media all and (orientation: $sens) and (min-height:545px) {
         height: $big;
     }
 
-    @media all   and (orientation: $sens)  and (max-height:544px) and (min-height: 375px) {
-      height:$medium;
+    @media all and (orientation: $sens) and (max-height:544px) and (min-height: 375px) {
+        height: $medium;
     }
 
-    @media all   and (orientation: $sens) and (max-height:375px ) and (min-height: 205px) {
-      height:$small;
+    @media all and (orientation: $sens) and (max-height:375px) and (min-height: 205px) {
+        height: $small;
     }
 
 }
 
-@mixin  no_link {
-    a{
-        color:map-get($palette_dark,ninth_element);
+
+
+
+@mixin mediaWH($big, $medium, $small, $x_smal:$small) {
+
+    @media all and (min-width:1024px) {
+        height: $big;
+    }
+
+    @media all and (max-width:1023px) and (min-width: 800px) {
+        height: $medium;
+    }
+
+
+
+    @if($x_smal !=$small) {
+
+        @media all and (max-width:799px) and (min-width: 554px) {
+            height: $small;
+        }
+
+
+        @media all and (max-width:555px) and (min-height:80px) {
+            height: $x_smal;
+        }
+    }
+
+    @else {
+
+
+        @media all and (max-width:799px) and (min-width: 80px) {
+            height: $small;
+        }
+
+    }
+
+}
+
+
+@mixin mediabig() {
+
+    @media all and (min-width:1024px) {
+        @content;
+    }
+
+}
+
+@mixin mediamedium() {
+    @media all  and (max-height:544px) and (min-height: 375px) {
+        @content;
+
+    }
+
+}
+
+
+@mixin mediasmal($small,$smallh) {
+    @media all and (orientation: $sens) and (max-height:375px) and (min-height: 205px) {
+        @content;
+
+    }
+}
+
+
+
+@mixin no_link {
+    a {
+        color: map-get($palette_regular, ninth_element);
         text-decoration: none;
     }
 }
 
 
 
-@mixin  link{
-    a{
-        color:map-get($palette_regular,fifth_element);
-        text-decoration:underline;
+@mixin link {
+    a {
+        color: map-get($palette_regular, fifth_element);
+        text-decoration: underline;
     }
 }
 
-@mixin invalid{
+@mixin invalid {
     background-color: #f97b68f7;
     color: #ac0000;
 }
 
 
-@mixin valid{
+@mixin valid {
     background-color: rgba(152, 253, 0, 0.349);
     color: green;
 }
