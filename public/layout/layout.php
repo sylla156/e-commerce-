@@ -174,19 +174,8 @@ account info">
 ?>
 
 <br><br><br>
-<div class="resize-bloc">
-    <div>
 
-         <?php
-         //view of carousel of ma page
-          if(isset($container)){
-                echo $container;
-            }
-         ?>
-    </div>
-
-</div>
 </body>
-<script src="script/slide.js"></script>
 
+<script src="script/slide.js" async></script>
 </html>

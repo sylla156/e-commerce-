@@ -27,7 +27,7 @@ class router{
     private function element_router(){
         foreach ($this->url_name as $key => $value) {
             $this->route->map('GET|POST',$value,function(){
-                $redirection = $_SERVER["PATH_INFO"] ?? "/../public";
+                $redirection = $_SERVER["PATH_INFO"] ?? "/../controller/acceuill";
                   require_once   __DIR__."/../../controller".$redirection."/index.php";
             });
         }
