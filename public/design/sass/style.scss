@@ -415,53 +415,89 @@ span {
 
     @include mediabig() {
         width: 150vh;
-        @include flex(row,flex-end,flex-end);
+        @include flex(row, flex-end, flex-end);
+    }
+
+&_main {
+    @include mediabig() {
+        @include flex(row, flex-end, flex-end);
+        transition: all 1s;
     }
 
 
-    &_main {
-        @include mediabig(){
-            @include flex(row,flex-end,flex-end);
-        }
-        
 
-        
-        &--first {
-            @include mediamedium() {
-                @include flex(row, flex-start);
-            }
+    &--first {
+        @include mediamedium() {
+            @include flex(row, flex-start);
+        }
+
+        @include mediasmal() {
+            @include flex(row, flex-start);
+        }
+
+        @include mediabig() {
+            @include flex(row, flex-end, flex-end);
+            transition: all 1s;
+        }
+
+        p {
 
             @include mediasmal() {
-                @include flex(row, flex-start);
+                margin: 0 10px;
+            }
+
+            @include mediamedium() {
+                margin: 0 10px;
             }
 
             @include mediabig() {
-                @include flex(row,flex-end,flex-end);
+                @include flex(row, flex-end, flex-end);
+                transition: all 1s;
+
             }
 
-            p {
-                
-                @include mediasmal() {
-                    margin: 0 10px;
-                }
-                
-                @include mediamedium() {
-                    margin: 0 10px;
-                }
-                @include mediabig(){
-                    @include flex(row,flex-end,flex-end);
-                }              
+            img {
 
-                img {
-                    
-                    @include media(150vh, 75vh, 50vh);
+                @include media(150vh, 75vh, 50vh);
 
-                    @include iphoneX() {
-                        @include media(150vh, 75vh, 40vh);
-                    }
-
+                @include iphoneX() {
+                    @include media(150vh, 75vh, 40vh);
                 }
+
+                transition: all 1s;
+
             }
         }
     }
+}
+}
+
+.btn {
+    @include mediabig() {
+        display: block;
+        position: absolute;
+        padding: 10px;
+
+        &:hover {
+            background-color: rgba(44, 38, 38, 0.434);
+            cursor: pointer;
+        }
+    }
+
+    display:none;
+}
+
+.element_carousel{
+    @include mediabig(){
+        position: absolute;
+        display:block;
+        @include flex();
+        p#ok{
+            margin: 0 4px;
+            border-radius: 100%;
+            background-color:white;
+            padding: 10px;
+        }
+    }
+    display:none;
 }
