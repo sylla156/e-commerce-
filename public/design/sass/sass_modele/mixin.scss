@@ -64,6 +64,10 @@
     outline: 0;
     color: map-get($palette_dark, ninth_element);
     background-color: map-get($palette_dark,first_element);
+    @include mediabig(){
+        overflow-x: hidden;
+    }
+    
 }
 
 
@@ -73,6 +77,11 @@
     position: fixed;
     width:100%;
     height: 10vh;
+    z-index: 2;
+    @media all  and (orientation:landscape) and (max-width:1023px) and (min-width: 375px) {
+        height: 16vh;
+
+    }
 
     @media all and (min-width:1024px) {
         &_main {
@@ -111,7 +120,7 @@
         width: $big;
     }
 
-    @media all and (max-width:1023px) and (min-width: 800px) {
+    @media all and (max-width:1024px) and (min-width: 800px) {
         width: $medium;
     }
 
@@ -132,7 +141,7 @@
     @else {
 
 
-        @media all and (max-width:799px) and (min-width: 80px) {
+        @media all and (max-width:800px) and (min-width: 80px) {
             width: $small;
         }
 
@@ -199,14 +208,14 @@
 
 @mixin mediabig() {
 
-    @media all and (min-width:1024px) {
+    @media all and (min-width:1000px) {
         @content;
     }
 
 }
 
 @mixin mediamedium() {
-    @media all  and (max-height:544px) and (min-height: 375px) {
+    @media all  and (max-width:1023px) and (min-width: 375px) {
         @content;
 
     }
@@ -214,14 +223,19 @@
 }
 
 
-@mixin mediasmal($small,$smallh) {
-    @media all and (orientation: $sens) and (max-height:375px) and (min-height: 205px) {
+@mixin mediasmal() {
+    @media all and  (max-width:375px) and (min-width: 205px) {
         @content;
 
     }
 }
 
+@mixin iphoneX() {
+    @media all and  (width:375px) and (height:812px) {
+        @content;
 
+    }
+}
 
 @mixin no_link {
     a {

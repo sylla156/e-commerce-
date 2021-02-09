@@ -8,6 +8,8 @@ body {
     hr {
         border-color: white;
     }
+
+
 }
 
 .head {
@@ -19,9 +21,10 @@ body {
         div.first {
             @include flex(row, space-around);
             flex: 1;
-           #menu{
-               padding: 10px;
-           }
+
+            #menu {
+                padding: 10px;
+            }
         }
 
         @include flex(row, space-around);
@@ -107,23 +110,27 @@ body {
 
 
 .slider {
-    background-color:map-get($palette_dark,third_element);
+    background-color: map-get($palette_dark, third_element);
     // background-color: #0077b6;
     top: 10vh;
     position: fixed;
     transition: all 0.4s;
-    transition-timing-function:ease-out;
+    transition-timing-function: ease-out;
+
+    @media all and (orientation:landscape) and (max-width:1023px) and (min-width: 375px) {
+        top: 13vh;
+    }
+
     height: 100vh;
-    overflow: hidden;
     width: 0%;
     z-index: 2;
 
-    p{
+    p {
         display: inline;
-        padding:0 0 0 20px;
-        @include flex(row,flex-start);
+        padding: 0 0 0 20px;
+        @include flex(row, flex-start);
     }
-   
+
 }
 
 .no-click {
@@ -138,11 +145,11 @@ body {
 .sign {
     position: fixed;
     transition: all 0.4s;
-    transition-timing-function:ease-out;
+    transition-timing-function: ease-out;
     width: 1%;
     right: 0;
-    top:10vh;
-    background-color: map-get($palette_dark,third_element);
+    top: 10vh;
+    background-color: map-get($palette_dark, third_element);
     z-index: 2;
     height: 100vh;
 }
@@ -328,59 +335,169 @@ span {
 
 //pour le panier
 
-    .panier {
+.panier {
 
-        overflow: hidden;
-        &_main {
-            @include flex(row, space-between, stretch);
-            width: 100%;
-            padding-left:10px;
-            padding-right: 15px;
-            p.first {
-                //panier
-                padding: 10px 20px;
-                font-weight: bold;
-                font-style: italic;
-                text-transform: capitalize;
-                background-color: #0077b6;
-                border-radius: 15px;
-                color: #ffffff;
-            }
+    overflow: hidden;
 
-            p:last-child {
-                //img close
-                padding: 10px 20px;
-                @include dynamic(mode("dark"), "yes", "none")
-            }
+    &_main {
+        @include flex(row, space-between, stretch);
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 15px;
 
+        p.first {
+            //panier
+            padding: 10px 20px;
+            font-weight: bold;
+            font-style: italic;
+            text-transform: capitalize;
+            background-color: #0077b6;
+            border-radius: 15px;
+            color: #ffffff;
         }
 
-
-
-        &_book {
-            &--first {
-                text-align: center;
-                font-weight: bold;
-                text-transform: capitalize;
-            }
+        p:last-child {
+            //img close
+            padding: 10px 20px;
+            @include dynamic(mode("dark"), "yes", "none");
+            cursor: pointer;
         }
 
-        &_second {
-            @include flex();
-            height: 50vh;
-
-            img {
-                @include media(30vh, 25vh, 15vh);
-                padding: 30px;
-                background-color: #e9ecef;
-                border-radius: 40%;
-            }
-        }
     }
 
 
-.resize-bloc{
-    position: absolute;
-    right: 0;
-    transition: all 0.4s;
+
+    &_book {
+        &--first {
+            text-align: center;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+    }
+
+    &_second {
+        @include flex();
+        height: 50vh;
+
+        img {
+            @include media(30vh, 25vh, 15vh);
+            padding: 30px;
+            background-color: #e9ecef;
+            border-radius: 40%;
+        }
+    }
+}
+
+
+.resize-bloc {
+    @include mediabig() {
+        position: absolute;
+        right: 0;
+        transition: all 0.4s;
+        @include flex;
+    }
+}
+
+
+
+.carousel {
+    @include mediamedium() {
+
+        overflow: scroll;
+        z-index: -1;
+    }
+
+    @include mediasmal() {
+
+        overflow: scroll;
+        z-index: -1;
+    }
+
+    @include mediabig() {
+        width: 150vh;
+        @include flex(row, flex-end, flex-end);
+    }
+
+&_main {
+    @include mediabig() {
+        @include flex(row, flex-end, flex-end);
+    }
+    transition: all 1s;
+
+
+
+    &--first {
+        @include mediamedium() {
+            @include flex(row, flex-start);
+        }
+
+        @include mediasmal() {
+            @include flex(row, flex-start);
+        }
+
+        @include mediabig() {
+            @include flex(row, flex-end, flex-end);
+        }
+        transition: all 1s;
+
+        p {
+
+            @include mediasmal() {
+                margin: 0 10px;
+            }
+
+            @include mediamedium() {
+                margin: 0 10px;
+            }
+
+            @include mediabig() {
+                @include flex(row, flex-end, flex-end);
+                
+            }
+            transition: all 1s;
+
+            img {
+
+                @include media(150vh, 75vh, 50vh);
+
+                @include iphoneX() {
+                    @include media(150vh, 75vh, 40vh);
+                }
+
+                transition: all 1s;
+
+            }
+        }
+    }
+}
+}
+
+.btn {
+    @include mediabig() {
+        display: block;
+        position: absolute;
+        padding: 10px;
+
+        &:hover {
+            background-color: rgba(44, 38, 38, 0.434);
+            cursor: pointer;
+        }
+    }
+
+    display:none;
+}
+
+.element_carousel{
+    @include mediabig(){
+        position: absolute;
+        display:block;
+        @include flex();
+        p#ok{
+            margin: 0 4px;
+            border-radius: 100%;
+            background-color:white;
+            padding: 10px;
+        }
+    }
+    display:none;
 }
