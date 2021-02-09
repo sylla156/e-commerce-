@@ -421,8 +421,8 @@ span {
 &_main {
     @include mediabig() {
         @include flex(row, flex-end, flex-end);
-        transition: all 1s;
     }
+    transition: all 1s;
 
 
 
@@ -437,8 +437,8 @@ span {
 
         @include mediabig() {
             @include flex(row, flex-end, flex-end);
-            transition: all 1s;
         }
+        transition: all 1s;
 
         p {
 
@@ -452,9 +452,9 @@ span {
 
             @include mediabig() {
                 @include flex(row, flex-end, flex-end);
-                transition: all 1s;
-
+                
             }
+            transition: all 1s;
 
             img {
 

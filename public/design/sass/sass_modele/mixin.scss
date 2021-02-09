@@ -64,6 +64,9 @@
     outline: 0;
     color: map-get($palette_dark, ninth_element);
     background-color: map-get($palette_dark,first_element);
+    @include mediabig(){
+        overflow-x: hidden;
+    }
     
 }
 
@@ -117,7 +120,7 @@
         width: $big;
     }
 
-    @media all and (max-width:1023px) and (min-width: 800px) {
+    @media all and (max-width:1024px) and (min-width: 800px) {
         width: $medium;
     }
 
@@ -205,7 +208,7 @@
 
 @mixin mediabig() {
 
-    @media all and (min-width:1024px) {
+    @media all and (min-width:1000px) {
         @content;
     }
 

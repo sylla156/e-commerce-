@@ -39,9 +39,7 @@ let global_click = [];
 let click_slider = 0;
 
 // les variable qui font bouge le carousel
-if (carousel != null) {
-    let compt = carousel.scrollWidth / carousel_main_first__chlidAll.length;
-}
+
 let taille = 0;
 
 menu.addEventListener("click", move);
@@ -84,14 +82,14 @@ function move() {
         setTimeout(() => {
             slider.style.width = "45vh";
             slider.style.opacity = 1;
-            btn_element_carousel.style.left = carousel_main_first__chlidAll[0].clientWidth / 2.2 + 'px';
         }, 100);
         setTimeout(() => {
-            if (innerWidth > 1024) {
+            if (innerWidth >= 1024) {
                 if (main_bloc != null) {
                     main_bloc.style.width = innerWidth - slider.clientWidth - 20 + "px";
                 }
                 if (carousel != null) {
+                    btn_element_carousel.style.left = carousel_main_first__chlidAll[0].clientWidth / 2.2 + 'px';
                     carousel_main.style.width =
                         innerWidth - slider.clientWidth + 10 + "px";
                 }
@@ -123,11 +121,7 @@ function move() {
 function resize(menu) {
     setTimeout(() => {
         //pour le click au grand ecran
-        if (
-            innerWidth >= 1024 &&
-            location.pathname == "/" &&
-            global_click != null
-        ) {
+        if (innerWidth >= 1024 && location.pathname == "/" && global_click != null) {
             menu.click();
         }
     }, 1000);
@@ -135,11 +129,13 @@ function resize(menu) {
     //pour le carousel des petit ecran
     if (carousel != null) {
         if (innerWidth < 1024) {
-            (function caeousel_move() {
+    let compt = carousel.scrollWidth / carousel_main_first__chlidAll.length;
+
+            (function () {
                 setInterval(() => {
                     carousel.scrollLeft = taille;
                     taille += compt;
-
+                    
                     if (taille >= carousel.scrollWidth) {
                         taille = 0;
                     }
@@ -152,7 +148,7 @@ function resize(menu) {
             carousel_main.style.width = innerWidth - 100 + "px";
         }
 
-        if (innerWidth >= 1024) {
+        if (innerWidth >= 1024 || innerWidth == 1024) {
             carousel.style.width =
                 carousel_main_first__chlidAll[0].lastElementChild.clientWidth + "px";
             prev_carousel.style.top = innerHeight / 2.5 + "px";
@@ -216,10 +212,10 @@ function icon_back() {
 if (carousel != null) {
     window.onresize = () => {
         (function carousel_big() {
-            if (innerWidth > 1024) {
+            if (innerWidth >= 1024) {
                 setInterval(() => {
                     carousel_main.lastElementChild.style.transform =
-                        "translateX(" + -300 + "vh)";
+                        "translateX(" + -300 + "px)";
                 }, 3000);
             }
         })();
@@ -229,49 +225,49 @@ if (carousel != null) {
 
 let time = carousel_main_first__chlidAll.length;
 if (carousel != null) {
-    if (innerWidth > 1024) {
+    if (innerWidth >= 1024) {
         let avance = 0;
         setInterval(() => {
             time--;
             carousel_main.lastElementChild.style.transform =
-                "translateX(" + avance + "vh)";
-            avance += 150;
+                "translateX(" + avance + "px)";
+            avance += carousel_main_first__chlidAll[0].clientWidth;
             if (!time) {
                 avance = 0;
                 time = carousel_main_first__chlidAll.length;
             }
         }, 5000);
 
-        next_carousel.onclick = () => {
-            if (time <= 1) {
-                next_carousel.style.display = "block";
-                next_carousel.style.display = "none";
-            } else {
-                prev_carousel.style.display = "block";
-                time--;
-                avance += 150;
-                carousel_main.lastElementChild.style.transform =
-                    "translateX(" + avance + "vh)";
-            }
-        };
-
         prev_carousel.onclick = () => {
-            if (time >= carousel_main_first__chlidAll.length) {
+            if (time <= 1) {
                 next_carousel.style.display = "block";
                 prev_carousel.style.display = "none";
             } else {
                 next_carousel.style.display = "block";
-                time++;
-                avance -= 150;
+                time--;
+                avance += carousel_main_first__chlidAll[0].clientWidth;
                 carousel_main.lastElementChild.style.transform =
-                    "translateX(" + avance + "vh)";
+                    "translateX(" + avance + "px)";
+            }
+        };
+
+        next_carousel.onclick = () => {
+            if (time >= carousel_main_first__chlidAll.length) {
+                prev_carousel.style.display = "block";
+                next_carousel.style.display = "none";
+            } else {
+                prev_carousel.style.display = "block";
+                time++;
+                avance -= carousel_main_first__chlidAll[0].clientWidth;
+                carousel_main.lastElementChild.style.transform =
+                    "translateX(" + avance + "px)";
             }
         };
     }
 }
 
 if (carousel != null) {
-    if (innerWidth > 1024) {
+    if (innerWidth >= 1024) {
         (function () {
             for (let i = 0; i < carousel_main_first__chlidAll.length; i++) {
                 btn_element_carousel.innerHTML += "<p class=" + i + " id='ok'><p>";
@@ -283,8 +279,6 @@ if (carousel != null) {
                     }
                     document.getElementsByClassName(i)[0].style.background = "#0096c7";
                     
-                    console.log(this);
-                    e.target.click();
                     time = carousel_main_first__chlidAll.length - i;
 
                     avance = i * 150;
