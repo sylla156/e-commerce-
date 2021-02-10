@@ -4,7 +4,7 @@ namespace aps\database;
 use PDO;
 use PDOException;
 
-class connexion{
+abstract class connexion{
     public $db;
     
     public function __construct()
@@ -28,6 +28,12 @@ class connexion{
                 UNIQUE(email) )";
 
             $this->db->exec($sql);
+
+
+            $sql = "CREATE TABLE IF NOT EXISTS `article` ( `id` INT unsigned NOT NULL AUTO_INCREMENT , `img` TINYBLOB NOT NULL , `prix` INT unsigned NOT NULL , `commentaire` TEXT(1000) NOT NULL , PRIMARY KEY (`id`))";
+
+            $this->db->exec($sql);
+
 
         } catch (PDOException $e) {
             echo $e->getMessage();
