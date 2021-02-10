@@ -64,9 +64,9 @@
     outline: 0;
     color: map-get($palette_dark, ninth_element);
     background-color: map-get($palette_dark,first_element);
-    @include mediabig(){
-        overflow-x: hidden;
-    }
+    // @include mediabig(){
+    //     overflow-x: hidden;
+    // }
     
 }
 

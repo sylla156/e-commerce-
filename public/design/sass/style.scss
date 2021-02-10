@@ -261,7 +261,7 @@ span {
 
 
     &_main {
-        background-color: map-get($palette_dark, second_element);
+        background-color: #ffffff;
         height: 100%;
         padding: 20px 0px;
         @include flex;
@@ -398,106 +398,243 @@ span {
     }
 }
 
+.le_pere_carousel {
+    @include flex;
 
-
-.carousel {
-    @include mediamedium() {
-
-        overflow: scroll;
-        z-index: -1;
+    @include mediasmal {
+        overflow-x: scroll;
     }
 
-    @include mediasmal() {
+    @include mediamedium {
+        overflow-x: scroll;
 
-        overflow: scroll;
-        z-index: -1;
     }
 
-    @include mediabig() {
-        width: 150vh;
-        @include flex(row, flex-end, flex-end);
-    }
+    .principale_carousel {
 
-&_main {
-    @include mediabig() {
-        @include flex(row, flex-end, flex-end);
-    }
-    transition: all 1s;
-
-
-
-    &--first {
-        @include mediamedium() {
-            @include flex(row, flex-start);
-        }
-
-        @include mediasmal() {
-            @include flex(row, flex-start);
-        }
-
-        @include mediabig() {
-            @include flex(row, flex-end, flex-end);
-        }
-        transition: all 1s;
-
-        p {
-
-            @include mediasmal() {
-                margin: 0 10px;
-            }
+        .carousel {
 
             @include mediamedium() {
-                margin: 0 10px;
+
+                overflow: scroll;
+                z-index: -1;
+            }
+
+            @include mediasmal() {
+
+                overflow: scroll;
+                z-index: -1;
             }
 
             @include mediabig() {
+                width: 150vh;
                 @include flex(row, flex-end, flex-end);
-                
             }
-            transition: all 1s;
 
-            img {
-
-                @include media(150vh, 75vh, 50vh);
-
-                @include iphoneX() {
-                    @include media(150vh, 75vh, 40vh);
+            &_main {
+                @include mediabig() {
+                    @include flex(row, flex-end, flex-end);
                 }
 
                 transition: all 1s;
 
+
+
+                &--first {
+                    @include mediamedium() {
+                        @include flex(row, flex-start);
+                    }
+
+                    @include mediasmal() {
+                        @include flex(row, flex-start);
+                    }
+
+                    @include mediabig() {
+                        @include flex(row, flex-end, flex-end);
+                    }
+
+                    transition: all 1s;
+
+                    p {
+
+                        @include mediasmal() {
+                            margin: 0 10px;
+                        }
+
+                        @include mediamedium() {
+                            margin: 0 10px;
+                        }
+
+                        @include mediabig() {
+                            @include flex(row, flex-end, flex-end);
+
+                        }
+
+                        transition: all 1s;
+
+                        img {
+
+                            @include media(150vh, 75vh, 50vh);
+
+                            @include iphoneX() {
+                                @include media(150vh, 75vh, 40vh);
+                            }
+
+                            transition: all 1s;
+
+                        }
+                    }
+                }
             }
         }
-    }
-}
-}
 
-.btn {
-    @include mediabig() {
-        display: block;
-        position: absolute;
-        padding: 10px;
+        .btn {
+            @include mediabig() {
+                display: block;
+                position: absolute;
+                padding: 10px;
 
-        &:hover {
-            background-color: rgba(44, 38, 38, 0.434);
-            cursor: pointer;
+                &:hover {
+                    background-color: rgba(44, 38, 38, 0.434);
+                    cursor: pointer;
+                }
+            }
+
+            display:none;
+        }
+
+        .element_carousel {
+            @include mediabig() {
+                display: block;
+                @include flex();
+
+                p#ok {
+                    background-color: #b1d0efda;
+                    margin: 0 4px;
+                    border-radius: 100%;
+                    padding: 10px;
+                }
+            }
+
+            display:none;
         }
     }
-
-    display:none;
 }
 
-.element_carousel{
-    @include mediabig(){
-        position: absolute;
-        display:block;
-        @include flex();
-        p#ok{
-            margin: 0 4px;
-            border-radius: 100%;
-            background-color:white;
+.article {
+    &_main {
+        display: grid;
+        justify-items: stretch;
+        row-gap: 5vh;
+        column-gap: 3vw;
+        justify-content: stretch;
+        margin: 3vw;
+
+        @include mediasmal() {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mediamedium {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        background-color: #ffffff;
+
+        &--child {
             padding: 10px;
+            box-shadow: 10px 10px 10px map-get($palette_dark, second_element);
+            transition: all 0.5s;
+
+            @include mediabig {
+                width: 100/4vw;
+                height: 40vh;
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 4fr 0.5fr 0.5fr;
+            }
+
+            @include mediasmal() {
+                width: 100/3vw;
+                height: 30vh;
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 4fr 0.5fr 0.5fr;
+            }
+
+
+            @include mediamedium {
+                width: 100/3vw;
+                height: 30vh;
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 4fr 0.5fr 0.5fr;
+            }
+
+            &--img {
+                margin: 0;
+                padding: 0;
+
+                img {
+                    @include mediabig {
+                        width: 25vw;
+                        height: 28vh;
+                    }
+
+                    @include mediasmal {
+                        width: 50vw;
+                        height: 14vh;
+                    }
+
+                    @include mediamedium {
+                        width: 100/3vw;
+                        height: 14vh;
+                    }
+                }
+            }
+
+            &--img:hover {
+                transition: all 0.4s;
+                scale: 1.05;
+            }
+
+
+
+            &--img:active {
+                scale: 1.05;
+                transition: all 0.4s;
+            }
+
+            &--price {
+                margin: 0;
+                padding: 0;
+               
+                strong {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                del {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            &--text {
+                text-align: justify;
+                text-indent: 2vw;
+                justify-self: start;
+            }
+        }
+
+        &--child:hover {
+            box-shadow: none;
+        }
+
+        &--child:active {
+            box-shadow: none;
         }
     }
-    display:none;
 }
