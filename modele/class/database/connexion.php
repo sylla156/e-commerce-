@@ -34,8 +34,13 @@ abstract class connexion{
 
             $this->db->exec($sql);
 
+            $sql = "CREATE  TABLE IF NOT EXISTS `admin` (`id` int unsigned AUTO_INCREMENT PRIMARY KEY,`nom` varchar(20),`prenom` varchar(30),`email` varchar(100),pass varchar(100))";
+
+            $this->db->exec($sql);
+
 
         } catch (PDOException $e) {
+            
             echo $e->getMessage();
         }
     }

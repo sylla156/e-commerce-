@@ -22,6 +22,20 @@ class verifier extends connexion{
         }
     }
 
+    public function verifie_a(string $email,string $password){
+        $this->connecter();
+        $take = new take();
+        $values_take = $take->take_element_a($email);
+        foreach ($values_take as $key => $value) {
+           if($value[ "email"] == $email){
+               return $values_take;
+           }
+           else{
+               return false;
+           }
+        }
+    }
+
 
     public static function nom($nom){
         if ($nom == ""){

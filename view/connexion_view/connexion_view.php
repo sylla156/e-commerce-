@@ -1,7 +1,8 @@
 <?php
-if (isset($alert)){
+if (isset($alert)) {
     echo $alert;
 }
+
 use aps\redirection;
 ?>
 
@@ -9,8 +10,8 @@ use aps\redirection;
 
 
     <p class="signUP_title">
-    <h1>connection</h1>
-    <span class="span"  style="transition:all 0.2s"></span>
+    <h1 class="signUP_title--first">connection</h1>
+    <span class="span" style="transition:all 0.2s"></span>
     </p>
 
 
@@ -21,13 +22,19 @@ use aps\redirection;
             <br><br>
             <input type="password" placeholder=" password" name="password" class="input">
             <br><br>
+            <div class="signUP_main--who">
+            <select name="admin" id="admin">
+                <option value="user">user</option>
+                <option value="admin">admin</option>
+            </select>
+            </div>
             <p>
                 <button type="submit" name="connexion" value="yes">envoyer</button>
             </p>
 
 
             <div class="signUP_main--link">
-                <a href="<?=redirection::redirect()?>/inscription">inscription</a>
+                <a href="<?= redirection::redirect() ?>/inscription">inscription</a>
             </div>
         </form>
 

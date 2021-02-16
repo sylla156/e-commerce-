@@ -29,6 +29,8 @@ let menu = document.querySelector("#menu");
 // la partie connection pour dire se connection inscription
 let sign = document.querySelector(".sign");
 let sign_up = document.querySelector("#sign");
+let admin = document.querySelector('.signUP_main--who');
+let title_of_connection = document.querySelector('.signUP_title--first');
 
 // la patir resize d bloc de text quand on click sur un button
 let main_bloc = document.querySelector(".resize-bloc");
@@ -178,6 +180,25 @@ if (carousel != null) {
       carousel_main_first__chlidAll[0].lastElementChild.clientWidth + "px";
   }
 }
+
+
+//for btn admin 
+(function() {
+
+  let nombre_cout = 0
+  title_of_connection.ondblclick = () => {
+    if (nombre_cout == 0) {
+      admin.style.display = "block"
+      nombre_cout = 1
+    } else if (nombre_cout == 1) {
+      admin.style.display = "none"
+      nombre_cout = 0
+    }
+
+  }
+
+})();
+
 
 function sig() {
   if (sign.attributes.class.textContent != "sign") {
