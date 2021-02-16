@@ -4,6 +4,8 @@ namespace aps\database;
 use aps\database\take;
 use aps\database\hash;
 
+use function PHPSTORM_META\type;
+
 class verifier extends connexion{
     
 
@@ -14,6 +16,20 @@ class verifier extends connexion{
         $values_take = $take->take_element_p($email);
         foreach ($values_take as $key => $value) {
            if($value[ "email"] == $email and hash::is_hash($password,$value["pass"])){
+               return $values_take;
+           }
+           else{
+               return false;
+           }
+        }
+    }
+
+    public function verifie_a(string $email,string $password){
+        $this->connecter();
+        $take = new take();
+        $values_take = $take->take_element_a($email);
+        foreach ($values_take as $key => $value) {
+           if($value[ "email"] == $email and $value["pass"] == $password){
                return $values_take;
            }
            else{
@@ -85,10 +101,6 @@ class verifier extends connexion{
 
 
 
-
-
-
-
     public static function passwordAll($password,$password_test){
         if ($password == "" and $password_test == ""){
             return false;
@@ -99,6 +111,28 @@ class verifier extends connexion{
              }else if (strlen($password) < 8 and strlen($password_test) < 8){
                  return false;
              }
+        }
+    }
+
+
+    public static function password($password){
+        if(strlen($password)>=8){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+
+
+    public static function reference($reference){
+        if (gettype($reference) == 'integer'){
+            $take = new take;
+            if($take->take_element_adminForReference($reference)){
+                return true;
+            }else {
+                return false;
+            }
         }
     }
 

@@ -1,0 +1,361 @@
+@import "sass_modele/function.scss";
+@import "sass_modele/mixin.scss";
+
+body {
+    @include body;
+    @include no_link;
+
+    hr {
+        border-color: white;
+    }
+}
+
+.head {
+
+    @include head();
+
+    &_main {
+
+        div.first {
+            @include flex(row, space-around);
+            flex: 1;
+
+            #menu {
+                padding: 10px;
+            }
+        }
+
+
+        &--title {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: cursive;
+
+        }
+
+        .element {
+            cursor: pointer;
+        }
+
+
+
+
+    }
+}
+
+.slider {
+    background-color: map-get($palette_dark, third_element);
+    // background-color: #0077b6;
+    top: 10vh;
+    position: fixed;
+    transition: all 0.4s;
+    transition-timing-function: ease-out;
+
+    @media all and (orientation:landscape) and (max-width:1023px) and (min-width: 375px) {
+        top: 13vh;
+    }
+
+    height: 100vh;
+    width: 0%;
+    z-index: 2;
+
+    p {
+        display: inline;
+        padding: 0 0 0 20px;
+        @include flex(row, flex-start);
+        cursor: pointer;
+    }
+
+}
+
+.no-click {
+    display: none;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+
+
+
+.sign {
+    position: fixed;
+    transition: all 0.4s;
+    transition-timing-function: ease-out;
+    width: 1%;
+    right: 0;
+    top: 10vh;
+    background-color: map-get($palette_dark, third_element);
+    z-index: 2;
+    height: 100vh;
+}
+
+span {
+    font-size: 19px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.sign {
+
+    &_element {
+        margin: 30px 10px;
+        @include media(30px, 20px, 10px);
+
+
+        &--element {
+            text-align: center;
+
+            a {
+                @include flex;
+                background-color: map-get($palette_dark, first_element);
+                padding: 20px 60px;
+                border-radius: 20px;
+                box-shadow: 10px 10px 10px grey;
+                font-weight: bold;
+                font-family: cursive;
+            }
+        }
+
+
+        &--first:hover,
+        &--second:hover {
+            transform: scale(0.95);
+        }
+
+
+        &--elements {
+            text-align: center;
+
+            div {
+                @include flex;
+                background-color: map-get($palette_dark, first_element);
+                padding: 20px 60px;
+                border-radius: 20px;
+                box-shadow: 10px 10px 10px grey;
+                font-weight: bold;
+                font-family: cursive;
+            }
+        }
+
+
+        &--first:hover,
+        &--second:hover {
+            transform: scale(0.95);
+        }
+
+    }
+}
+
+
+
+.account {
+    display: none;
+
+    &_main {
+
+        &--info {
+            @include flex;
+
+            table {
+                @include mediasmal {
+                    @include flex(row, space-between);
+                }
+
+                margin: 10px;
+                width: 80vw;
+
+                thead {
+                    @include mediasmal {
+
+                        th {
+                            text-align: center;
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-template-rows: repeat(4, 1fr);
+                            padding: 0;
+                            margin: 0;
+                            text-transform: capitalize;
+                            text-decoration: underline;
+                        }
+                    }
+
+                    @include mediabig {
+                        background-color: map-get($palette_dark, first_element);
+                    }
+                }
+
+                tbody {
+                    td {
+                        text-align: center;
+
+                        @include mediabig {
+                            padding: 10px;
+                        }
+
+                        @include mediasmal {
+
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-template-rows: repeat(4, 1fr);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// for account a cause du dispay none et block 
+.none {
+    padding: none;
+    margin: none;
+    @include flex(column);
+}
+
+// for gerer les administrateurs
+.main {
+
+
+    &_principale {
+        @include white;
+        margin: 10px;
+        @include mediasmal{
+            width: 98vw;
+        }
+        height: 75vh;
+        width: 85vw;
+
+        @include mediasmal() {
+            height: 90vh;
+        }
+
+        &--title {
+            @include flex(row, space-around);
+
+            div.premier {
+                p {
+
+                    @include mediasmal() {
+                        font-size: medium;
+                    }
+
+                    font-size: x-large;
+                    font-weight: bold;
+                    font-style: italic;
+                    text-align: center;
+
+                    @include mediasmal() {
+                        text-align: start;
+                        text-indent: 10px;
+                    }
+                }
+
+                flex: 6;
+            }
+
+            p.deuxieme {
+                flex: 1;
+                padding: 20px 20px;
+                justify-self: end;
+                text-align: end;
+                cursor: pointer;
+            }
+        }
+
+
+    }
+}
+
+.admin {
+    display: none;
+    &_title {
+        @include flex(row);
+        .first {    
+            text-align: center;
+            padding: 0 20vw;
+            @include mediasmal{
+                font-size: medium;
+            }
+            font-size: x-large;
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+            text-transform: capitalize;
+            
+        }
+
+        .quitte{
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .deuxieme{
+            text-align: end;
+        }
+    }
+
+    &_main {
+            overflow-x: scroll;
+
+        &--option {
+
+            table {
+                margin: 10px;
+                width: 80vw;
+
+                thead {
+
+                    background-color: map-get($palette_dark, first_element);
+                }
+
+                tbody {
+                    td {
+                        text-align: center;
+                        padding: 10px;
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.good{
+    button{
+        background-color: rgba(225, 50, 50, 0.777);
+        color: white;
+        padding:5px 20px;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+    }
+}
+
+.finalSubmit , .autre{
+    width: 0px;
+    opacity: 0;
+}
+
+.upgrade{
+    width: auto;
+}
+
+.submit{
+    background-color: map-get($palette_regular,seventh_element);
+    padding:2px 20px;
+    outline: none;
+    border-radius: 5px;
+}
+
+
+.shit {
+    @include invalid;
+    text-align: center;
+    margin: 1% 8%;
+
+    p {
+        padding: 10px;
+    }
+}
