@@ -147,64 +147,57 @@ span {
     }
 }
 
+
+
 .account {
     display: none;
-    @include flex;
 
     &_main {
-        @include white;
-        margin: 10px;
-        height: 75vh;
-        width: 85vw;
-
-        p{
-            @include mediasmal() {
-                font-size: medium;
-            }
-
-            font-size: x-large;
-            font-weight: bold;
-            font-style: italic;
-            text-align: center;
-        }
 
         &--info {
             @include flex;
+
             table {
-                @include mediasmal{
-                    @include flex(row,space-between);
+                @include mediasmal {
+                    @include flex(row, space-between);
                 }
+
                 margin: 10px;
                 width: 80vw;
+
                 thead {
-                    @include mediasmal{
-                        
-                        th{
+                    @include mediasmal {
+
+                        th {
                             text-align: center;
                             display: grid;
                             grid-template-columns: 1fr;
-                            grid-template-rows:repeat(4,1fr) ;
+                            grid-template-rows: repeat(4, 1fr);
                             padding: 0;
                             margin: 0;
                             text-transform: capitalize;
                             text-decoration: underline;
                         }
                     }
-                    @include mediabig{
+
+                    @include mediabig {
                         background-color: map-get($palette_dark, first_element);
                     }
                 }
-                tbody{
-                    td{
+
+                tbody {
+                    td {
                         text-align: center;
-                        @include mediabig{
+
+                        @include mediabig {
                             padding: 10px;
                         }
-                        @include mediasmal{
+
+                        @include mediasmal {
 
                             display: grid;
                             grid-template-columns: 1fr;
-                            grid-template-rows:repeat(4,1fr) ;
+                            grid-template-rows: repeat(4, 1fr);
                         }
                     }
                 }
@@ -213,3 +206,122 @@ span {
     }
 }
 
+// for account a cause du dispay none et block 
+.none {
+    padding: none;
+    margin: none;
+    @include flex(column);
+}
+
+// for gerer les administrateurs
+.main {
+
+
+    &_principale {
+        @include white;
+        margin: 10px;
+        @include mediasmal{
+            width: 98vw;
+        }
+        height: 75vh;
+        width: 85vw;
+
+        @include mediasmal() {
+            height: 90vh;
+        }
+
+        &--title {
+            @include flex(row, space-around);
+
+            div.premier {
+                p {
+
+                    @include mediasmal() {
+                        font-size: medium;
+                    }
+
+                    font-size: x-large;
+                    font-weight: bold;
+                    font-style: italic;
+                    text-align: center;
+
+                    @include mediasmal() {
+                        text-align: start;
+                        text-indent: 10px;
+                    }
+                }
+
+                flex: 6;
+            }
+
+            p.deuxieme {
+                flex: 1;
+                padding: 20px 20px;
+                justify-self: end;
+                text-align: end;
+                cursor: pointer;
+            }
+        }
+
+
+    }
+}
+
+.admin {
+    &_title {
+        @include flex(row);
+        .first {    
+            text-align: center;
+            padding: 0 20vw;
+            @include mediasmal{
+                font-size: medium;
+            }
+            font-size: x-large;
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+            text-transform: capitalize;
+            
+        }
+
+        .deuxieme{
+            text-align: end;
+        }
+    }
+
+    &_main {
+            overflow-x: scroll;
+
+        &--option {
+
+            table {
+                margin: 10px;
+                width: 80vw;
+
+                thead {
+
+                    background-color: map-get($palette_dark, first_element);
+                }
+
+                tbody {
+                    td {
+                        text-align: center;
+                        padding: 10px;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.good{
+    button{
+        background-color: rgba(225, 50, 50, 0.777);
+        color: white;
+        padding:5px 20px;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+    }
+}

@@ -22,10 +22,22 @@ class take extends connexion{
     $this->connecter();
     $go = $this->db->prepare("SELECT * FROM `admin` WHERE `email` = ? ");
     
-    $go->execute(array("ibrahim@gmail.com"));
+    $go->execute(array($email));
 
     return $go->fetchAll();
    }
+
+   
+   public function take_element_ALL():array{
+        
+    $this->connecter();
+    $go = $this->db->prepare("SELECT * FROM `admin`");
+    
+    $go->execute();
+
+    return $go->fetchAll();
+   }
+
    
 }
 

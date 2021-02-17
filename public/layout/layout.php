@@ -184,7 +184,9 @@ account info">
     </body>
 
     </html>
-<?php } else if (!empty($_SESSION['admin_info'])) { ?>
+<?php } else if (!empty($_SESSION['admin_info'])) { 
+    $compt = 0;
+    ?>
 
 
 
@@ -243,7 +245,7 @@ account info">
 
             <div class="sign_element--first sign_element sign_element--elements">
                 <div class="btn_account">
-                    <p ><img src="picture/icone/user.png" alt=""></p>
+                    <p><img src="picture/icone/user.png" alt=""></p>
                     <p>compte</p>
 
                 </div>
@@ -277,26 +279,83 @@ account info">
         </div>
 
 
-        <div class="account">
-            <div class="account_main">
-                <p>info du compte</p>
-                <div class="account_main--info">
-                    <table>
-                        <thead>
-                            <th>nom</th>
-                            <th>prenom</th>
-                            <th>email</th>
-                            <th>tel</th>
-                            <th>password</th>
-                        </thead>
-                        <tbody>
-                            <td><?= $_SESSION['admin_info'][0]['nom'] ?></td>
-                            <td><?= $_SESSION['admin_info'][0]['prenom'] ?></td>
-                            <td><?= $_SESSION['admin_info'][0]['email'] ?></td>
-                            <td>+225<?= " " . $_SESSION['admin_info'][0]['pass'] ?></td>
-                            <td><?= $_SESSION['admin_info'][0]['pass'] ?></td>
-                        </tbody>
-                    </table>
+        <div class="account main">
+            <div class="none">
+
+                <div class="account_main main_principale">
+                    <div class="account_main--title main_principale--title">
+                        <div class="first premier">
+                            <p>info du compte</p>
+                        </div>
+                        <p class="deuxieme accountQuit">⚔️</p>
+                    </div>
+                    <div class="account_main--info">
+                        <table>
+                            <thead>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th>email</th>
+                                <th>tel</th>
+                                <th>password</th>
+                            </thead>
+                            <tbody>
+                                <td><?= $_SESSION['admin_info'][0]['nom'] ?></td>
+                                <td><?= $_SESSION['admin_info'][0]['prenom'] ?></td>
+                                <td><?= $_SESSION['admin_info'][0]['email'] ?></td>
+                                <td>+225<?= " " . $_SESSION['admin_info'][0]['pass'] ?></td>
+                                <td><?= $_SESSION['admin_info'][0]['pass'] ?></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin main">
+            <div class="none">
+                <div class="admin_title ">
+                    <div class="first premier">
+                        <p>
+                            administration
+                        </p>
+                    </div>
+                    <p class="deuxieme quitte">⚔️</p>
+                </div>
+                <div class="admin_main main_principale">
+                    <div class="admin_main--option">
+                        <table>
+                            <thead>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th>email</th>
+                                <th>tel</th>
+                                <th>password</th>
+                                <th>modifier</th>
+                                <th>suprimer</th>
+
+                            </thead>
+                            <tbody>
+                                
+                                <?php foreach ($_SESSION['admin_ALL'] as $key => $value) {
+                                    $compt +=1;
+                                    $compte = "btn".$compt;
+                                    echo "
+                                    <tr>
+                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['nom']."</td>
+                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['prenom']."</td>
+                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['email']."</td>
+                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['pass']."</td>
+                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['pass']."</td>
+                                    <td id='".$compt."' class='btn_upgrade'><button>modifier</button></td>
+                                    <td id='".$compt."' class='btn_delete'><button>suprimer</button></td>
+                                    </tr>"
+                                    ;
+                                
+                                    
+                                }?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

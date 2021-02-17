@@ -1,5 +1,6 @@
 <?php
 
+use aps\database\take;
 use aps\database\verifier;
 use aps\filters;
 use aps\redirection;
@@ -34,6 +35,8 @@ if (isset($_POST['admin'])) {
             $user_info = $db->verifie_a(filters::filters_email($email), (string)$password);
             if ($user_info != false || $user_info != null) {
                 $_SESSION["admin_info"] = $user_info;
+                $takeAll_admin  = new take();
+                $_SESSION["admin_ALL"] = $takeAll_admin->take_element_ALL();
                 echo "<script>location.href='".redirection::redirect()."/admin'</script>";
             } else {
                 $alert = "<div class=\"shit\">
