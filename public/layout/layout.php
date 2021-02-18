@@ -1,6 +1,7 @@
 <!--   ici j'ai fait un simple code qui affiche deux code different en fonction d'une session qui contient les information de utilisateur -->
 <?php
 
+use aps\database\take;
 use aps\redirection;
 
 if (empty($_SESSION['admin_info'])) {
@@ -184,9 +185,9 @@ account info">
     </body>
 
     </html>
-<?php } else if (!empty($_SESSION['admin_info'])) { 
+<?php } else if (!empty($_SESSION['admin_info'])) {
     $compt = 0;
-    ?>
+?>
 
 
 
@@ -232,7 +233,7 @@ account info">
 
 
         <div class="slider no-click">
-            <p> 👥 admin</p>
+            <p class='slider_admin'> 👥 admin</p>
             <p> 📚 article</p>
             <p> 🎞 carousel</p>
             <p> 🚛 commande</p>
@@ -295,14 +296,12 @@ account info">
                                 <th>nom</th>
                                 <th>prenom</th>
                                 <th>email</th>
-                                <th>tel</th>
                                 <th>password</th>
                             </thead>
                             <tbody>
                                 <td><?= $_SESSION['admin_info'][0]['nom'] ?></td>
                                 <td><?= $_SESSION['admin_info'][0]['prenom'] ?></td>
                                 <td><?= $_SESSION['admin_info'][0]['email'] ?></td>
-                                <td>+225<?= " " . $_SESSION['admin_info'][0]['pass'] ?></td>
                                 <td><?= $_SESSION['admin_info'][0]['pass'] ?></td>
                             </tbody>
                         </table>
@@ -324,38 +323,45 @@ account info">
                 <div class="admin_main main_principale">
                     <div class="admin_main--option">
                         <table>
+                           
                             <thead>
+                                <th>id</th>
                                 <th>nom</th>
                                 <th>prenom</th>
                                 <th>email</th>
-                                <th>tel</th>
                                 <th>password</th>
                                 <th>modifier</th>
                                 <th>suprimer</th>
 
                             </thead>
                             <tbody>
-                                
+
                                 <?php foreach ($_SESSION['admin_ALL'] as $key => $value) {
-                                    $compt +=1;
-                                    $compte = "btn".$compt;
+                                    $compt += 1;
+                                    $compte = "btn" . $compt;
                                     echo "
                                     <tr>
-                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['nom']."</td>
-                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['prenom']."</td>
-                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['email']."</td>
-                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['pass']."</td>
-                                    <td class='".$compte."'>".$_SESSION['admin_ALL'][$key]['pass']."</td>
-                                    <td id='".$compt."' class='btn_upgrade'><button>modifier</button></td>
-                                    <td id='".$compt."' class='btn_delete'><button>suprimer</button></td>
-                                    </tr>"
-                                    ;
-                                
-                                    
-                                }?>
+                                    <td class='" . $compte . "'>" . $_SESSION['admin_ALL'][$key]['id'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['admin_ALL'][$key]['nom'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['admin_ALL'][$key]['prenom'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['admin_ALL'][$key]['email'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['admin_ALL'][$key]['pass'] . "</td>
+                                    <td id='" . $compt . "' class='btn_upgrade'><button>modifier</button></td>
+                                    <td id='" . $compt . "' class='btn_delete'><button>suprimer</button></td>
+                                    </tr>";
+                                } ?>
+                                <tr>
+                                    <td><input type="text" class="upgrade"></td>
+                                    <td><input type="text" class="upgrade"></td>
+                                    <td><input type="text" class="upgrade"></td>
+                                    <td><input type="text" class="upgrade"></td>
+                                    <td><input type="text" class="upgrade"></td>
+                                    <td><button class="upgrade">ajouter</button></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -367,7 +373,18 @@ account info">
 
             }
         </script>
+        <div class="form">
+            <form action="" method="post">
+                <input type="text" class="autre" name="reference">
+                <input type="text" class="autre" name="nom">
+                <input type="text" class="autre" name="prenom">
+                <input type="text" class="autre" name="email">
+                <input type="text" class="autre" name="password">
+                <input type="submit" class="finalSubmit">
+            </form>
+        </div>
     </body>
 
     </html>
-<?php } ?>
+<?php 
+} ?>

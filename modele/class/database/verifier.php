@@ -27,7 +27,7 @@ class verifier extends connexion{
         $take = new take();
         $values_take = $take->take_element_a($email);
         foreach ($values_take as $key => $value) {
-           if($value[ "email"] == $email){
+           if($value[ "email"] == $email and $value["pass"] == $password){
                return $values_take;
            }
            else{
