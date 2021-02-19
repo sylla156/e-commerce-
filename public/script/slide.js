@@ -52,9 +52,12 @@ menu.addEventListener("click", move);
 window.addEventListener("resize", resize(menu));
 
 sign_up.addEventListener("click", sig);
-
-icone.addEventListener("click", icon);
-icone_back.addEventListener("click", icon_back);
+if (icone != undefined){
+  icone.addEventListener("click", icon);
+}
+if(icone_back != undefined){
+  icone_back.addEventListener("click", icon_back);
+}
 
 window.onclick = () => {
   setTimeout(() => {
@@ -186,15 +189,18 @@ if (carousel != null) {
 (function() {
 
   let nombre_cout = 0
-  title_of_connection.ondblclick = () => {
-    if (nombre_cout == 0) {
-      admin.style.display = "block"
-      nombre_cout = 1
-    } else if (nombre_cout == 1) {
-      admin.style.display = "none"
-      nombre_cout = 0
-    }
+  if(title_of_connection != undefined){
 
+    title_of_connection.ondblclick = () => {
+      if (nombre_cout == 0) {
+        admin.style.display = "block"
+        nombre_cout = 1
+      } else if (nombre_cout == 1) {
+        admin.style.display = "none"
+        nombre_cout = 0
+      }
+      
+    }
   }
 
 })();

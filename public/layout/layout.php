@@ -214,7 +214,7 @@ account info">
                     </div>
 
                     <div class="head_main--title  element">
-                        <p><a href="<?= redirection::redirect() ?>/admin"><?= $_SESSION['admin_info'][0]['email'] ?></a></p>
+                        <p><a href="<?= redirection::redirect() ?>/admin" class="reload"><?= $_SESSION['admin_info'][0]['email'] ?></a></p>
                     </div>
 
 
