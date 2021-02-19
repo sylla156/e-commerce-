@@ -1,6 +1,5 @@
 // for les bouble click de menu ou de slide de sign
 
-
 // for les info u compte
 let btn_account = document.querySelector(".btn_account");
 let main_account = document.querySelector(".account");
@@ -12,6 +11,8 @@ quit(quit_account, main_account);
 // administrattion fonctionnaliter
 let btn_upgrade = document.querySelectorAll(".btn_upgrade");
 let btn_delete = document.querySelectorAll(".btn_delete");
+let envoie = document.querySelectorAll(".autre");
+let click_envoi = document.querySelector(".finalSubmit");
 let child_upgrade_count = undefined;
 let child_upgradeALL = undefined;
 let reset = [];
@@ -49,27 +50,50 @@ btn_upgrade.forEach((element) => {
 
       document.querySelector(".submit").addEventListener("click", () => {
         let input_all = document.querySelectorAll("input");
-        let envoie = document.querySelectorAll(".autre");
-        let click_envoi = document.querySelector(".finalSubmit");
 
         envoie[0].value = input_all[0].value;
         envoie[1].value = input_all[1].value;
         envoie[2].value = input_all[2].value;
         envoie[3].value = input_all[3].value;
         envoie[4].value = input_all[4].value;
+        envoie[5].value = "envoyer";
         click_envoi.click();
       });
 
-       if(child_upgradeALL != undefined){
-         btn_admin_annuler_S.addEventListener('click',() =>{
-          document.querySelector('.reload').click();
-         });
-       }
+      if (child_upgradeALL != undefined) {
+        btn_admin_annuler_S.addEventListener("click", () => {
+          document.querySelector(".reload").click();
+        });
+      }
     })();
   }
 });
 
+btn_delete.forEach((element) => {
 
+  element.addEventListener("click", () => {
+
+    if (confirm("etre vous sur de vouloir suprimer")) {
+
+      child_delete_count = element.attributes.id.value;
+      if (child_delete_count != undefined) {
+
+        child_deleteALL = document.querySelectorAll(
+          ".btn" + child_delete_count
+        );
+          
+        envoie[0].value = child_deleteALL[0].innerText;
+        envoie[1].value = child_deleteALL[1].innerText;
+        envoie[2].value = child_deleteALL[2].innerText;
+        envoie[3].value = child_deleteALL[3].innerText;
+        envoie[4].value = child_deleteALL[4].innerText;
+        envoie[5].value = "suprimer";
+        click_envoi.click();
+
+      }
+    }
+  });
+});
 
 (function () {
   window.onclick = () => {
@@ -88,7 +112,6 @@ btn_upgrade.forEach((element) => {
     }, 50);
   };
 })();
-
 
 function clicker(elementClickView, domHtml, avis = "no") {
   elementClickView.addEventListener("click", () => {

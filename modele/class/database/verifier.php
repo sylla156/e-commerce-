@@ -4,6 +4,8 @@ namespace aps\database;
 use aps\database\take;
 use aps\database\hash;
 
+use function PHPSTORM_META\type;
+
 class verifier extends connexion{
     
 
@@ -99,10 +101,6 @@ class verifier extends connexion{
 
 
 
-
-
-
-
     public static function passwordAll($password,$password_test){
         if ($password == "" and $password_test == ""){
             return false;
@@ -113,6 +111,28 @@ class verifier extends connexion{
              }else if (strlen($password) < 8 and strlen($password_test) < 8){
                  return false;
              }
+        }
+    }
+
+
+    public static function password($password){
+        if(strlen($password)>=8){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+
+
+    public static function reference($reference){
+        if (gettype($reference) == 'integer'){
+            $take = new take;
+            if($take->take_element_adminForReference($reference)){
+                return true;
+            }else {
+                return false;
+            }
         }
     }
 

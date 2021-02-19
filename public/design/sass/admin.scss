@@ -348,3 +348,14 @@ span {
     outline: none;
     border-radius: 5px;
 }
+
+
+.shit {
+    @include invalid;
+    text-align: center;
+    margin: 1% 8%;
+
+    p {
+        padding: 10px;
+    }
+}

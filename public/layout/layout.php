@@ -350,13 +350,14 @@ account info">
                                     <td id='" . $compt . "' class='btn_delete'><button>suprimer</button></td>
                                     </tr>";
                                 } ?>
-                                <tr>
-                                    <td><input type="text" class="upgrade"></td>
-                                    <td><input type="text" class="upgrade"></td>
-                                    <td><input type="text" class="upgrade"></td>
-                                    <td><input type="text" class="upgrade"></td>
-                                    <td><input type="text" class="upgrade"></td>
+                                <tr><form action="" method="post">
+                                    <td><input type="text" class="upgrade" name="reference"></td>
+                                    <td><input type="text" class="upgrade" name="nom"></td>
+                                    <td><input type="text" class="upgrade" name="prenom"></td>
+                                    <td><input type="text" class="upgrade" name="email"></td>
+                                    <td><input type="text" class="upgrade" name="password"></td>
                                     <td><button class="upgrade">ajouter</button></td>
+                                </form>
                                 </tr>
                             </tbody>
                         </table>
@@ -380,6 +381,7 @@ account info">
                 <input type="text" class="autre" name="prenom">
                 <input type="text" class="autre" name="email">
                 <input type="text" class="autre" name="password">
+                <input type="text" class="autre" name="type">
                 <input type="submit" class="finalSubmit">
             </form>
         </div>

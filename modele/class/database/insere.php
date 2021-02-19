@@ -22,11 +22,14 @@ class insere extends connexion
     }
 
 
-    // public function inserer_article(mixed $img, int $prix, string $commentaire)
-    // {
-    //     $this->connecter();
-    //     $go = $this->db->prepare("INSERT INTO `article`(?,?,?,?)");
-    //     $go->execute(array($img, $prix, $commentaire));
-    //     return true;
-    // }
+    public function insere_admin(int $reference,string $nom, string $prenom,string $email, string $password)
+    {
+
+        $this->connecter();
+        $go = $this->db->prepare("INSERT INTO `admin` (`id`, `nom`, `prenom`, `email`, `pass`) VALUES (?,?,?,?,?)");
+
+        $go->execute(array($reference,$nom, $prenom,$email,$password));
+        return true;
+    }
+
 }
