@@ -37,6 +37,8 @@ if (isset($_POST['admin'])) {
                 $_SESSION["admin_info"] = $user_info;
                 $takeAll_admin  = new take();
                 $_SESSION["admin_ALL"] = $takeAll_admin->take_element_ALL();
+                $takeAllUser = new take();
+                $_SESSION['user'] = $takeAllUser->takeElementAllUser();
                 echo "<script>location.href='".redirection::redirect()."/admin'</script>";
             } else {
                 $alert = "<div class=\"shit\">

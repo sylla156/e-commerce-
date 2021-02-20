@@ -322,6 +322,63 @@ span {
     }
 }
 
+
+
+.user {
+    &_title {
+        @include flex(row);
+        .first {    
+            text-align: center;
+            padding: 0 20vw;
+            @include mediasmal{
+                font-size: medium;
+            }
+            font-size: x-large;
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+            text-transform: capitalize;
+            
+        }
+
+        .quitte{
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .deuxieme{
+            text-align: end;
+        }
+    }
+
+    &_main {
+            overflow-x: scroll;
+
+        &--option {
+
+            table {
+                margin: 10px;
+                width: 80vw;
+
+                thead {
+
+                    background-color: map-get($palette_dark, first_element);
+                }
+
+                tbody {
+                    td {
+                        text-align: center;
+                        padding: 10px;
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 .good{
     button{
         background-color: rgba(225, 50, 50, 0.777);

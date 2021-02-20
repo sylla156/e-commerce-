@@ -15,9 +15,11 @@ AllBtnUpgrade(btn_upgrade, btn_delete);
 ALLBtnDelete(btn_delete);
 
 
-// d'ici les information vont etre envoyer
-let envoie = document.querySelectorAll(".autre");
-let click_envoi = document.querySelector(".finalSubmit");
+// administration for user
+let btnUpgradeUser = document.querySelectorAll('.btn_upgrade_user');
+let btnDeleteUser = document.querySelectorAll('.btn_delete_user');
+AllBtnUpgrade(btnUpgradeUser, btnDeleteUser, "user");
+ALLBtnDelete(btnDeleteUser);
 
 // for visible or invisible admin
 let btn_admin = document.querySelector(".slider_admin");
@@ -28,14 +30,20 @@ quit(quit_admin, main_admin);
 
 
 
-function AllBtnUpgrade(upgrade, delet) {
+function AllBtnUpgrade(upgrade, delet, mytype = "admin") {
   let child_upgrade_count = undefined;
   let child_upgradeALL = undefined;
   let btn_admin_annuler = undefined;
   let btn_admin_annuler_S = undefined;
+
+  // d'ici les information vont etre envoyer
+  let envoie = document.querySelectorAll(".autre");
+  let click_envoi = document.querySelector(".finalSubmit");
+
   let reset = [];
   upgrade.forEach((element) => {
     element.addEventListener("click", input);
+
     function input() {
       (function () {
         child_upgrade_count = element.attributes.id.value;
@@ -45,29 +53,50 @@ function AllBtnUpgrade(upgrade, delet) {
           btn_admin_annuler.outerHTML =
             "<td><button class ='annuler'>annuler</button></td>";
           btn_admin_annuler_S = document.querySelector(".annuler");
-          child_upgradeALL = document.querySelectorAll(
-            ".btn" + child_upgrade_count
-          );
+          if (mytype == "user") {
+            child_upgradeALL = document.querySelectorAll(
+              `.btnU${child_upgrade_count}`
+            );
+          } else {
+            child_upgradeALL = document.querySelectorAll(
+              `.btn${child_upgrade_count}`
+            );
+          }
         }
 
         if (child_upgradeALL != undefined) {
           child_upgradeALL.forEach((element) => {
-            element.outerHTML = `<td><input type='text' value='${element.innerText}' class='upgrade adminReset'></input></td>`;
+            element.outerHTML = `<td><input type='text' value='${element.innerText}' class='upgrade adminReset inputUser'></input></td>`;
             reset.push(element.innerText);
           });
         }
 
         document.querySelector(".submit").addEventListener("click", () => {
-          let input_all = document.querySelectorAll("input");
+          if (mytype == "user"){
+            
+          let input_all = document.querySelectorAll(".inputUser");
+            
+            envoie[0].value = input_all[0].value;
+            envoie[1].value = input_all[1].value;
+            envoie[2].value = input_all[2].value;
+            envoie[3].value = input_all[4].value;
+            envoie[4].value = input_all[5].value;
+            envoie[5].value = "envoyerUser";
+            envoie[6].value = input_all[3].value;
+            click_envoi.click();
+          }else{
 
-          envoie[0].value = input_all[0].value;
-          envoie[1].value = input_all[1].value;
-          envoie[2].value = input_all[2].value;
-          envoie[3].value = input_all[3].value;
-          envoie[4].value = input_all[4].value;
-          envoie[5].value = "envoyer";
-          click_envoi.click();
-        });
+          let input_all = document.querySelectorAll("input");
+            
+            envoie[0].value = input_all[0].value;
+            envoie[1].value = input_all[1].value;
+            envoie[2].value = input_all[2].value;
+            envoie[3].value = input_all[3].value;
+            envoie[4].value = input_all[4].value;
+            envoie[5].value = "envoyer";
+            click_envoi.click();
+          }
+          });
 
         if (child_upgradeALL != undefined) {
           btn_admin_annuler_S.addEventListener("click", () => {
@@ -78,9 +107,15 @@ function AllBtnUpgrade(upgrade, delet) {
     }
   });
 }
+
 function ALLBtnDelete(delet) {
   let child_delete_count = undefined;
   let child_deleteALL = undefined;
+
+  // d'ici les information vont etre envoyer
+  let envoie = document.querySelectorAll(".autre");
+  let click_envoi = document.querySelector(".finalSubmit");
+
   delet.forEach((element) => {
     element.addEventListener("click", () => {
       if (confirm("etre vous sur de vouloir suprimer")) {
@@ -89,7 +124,8 @@ function ALLBtnDelete(delet) {
           child_deleteALL = document.querySelectorAll(
             ".btn" + child_delete_count
           );
-
+          // console.log(envoie);
+          // console.log(child_deleteALL);
           envoie[0].value = child_deleteALL[0].innerText;
           envoie[1].value = child_deleteALL[1].innerText;
           envoie[2].value = child_deleteALL[2].innerText;
@@ -108,8 +144,7 @@ function ALLBtnDelete(delet) {
   window.onclick = () => {
     setTimeout(() => {
       if (global_click.length == 1) {
-        if (global_click[0] == "sign") {
-        }
+        if (global_click[0] == "sign") {}
       }
       if (global_click.length == 2) {
         if (global_click[1] == "menu") {
