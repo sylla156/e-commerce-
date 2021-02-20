@@ -127,7 +127,9 @@ function move() {
     setTimeout(() => {
       slider.attributes.class.textContent += " no-click";
       slider.style.opacity = 0;
-      btn_element_carousel.style.left = innerWidth / 2.5 + "px";
+      if (btn_element_carousel != undefined){
+        btn_element_carousel.style.left = innerWidth / 2.5 + "px";
+      }
     }, 400);
   }
 }

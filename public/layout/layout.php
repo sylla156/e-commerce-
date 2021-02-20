@@ -187,6 +187,7 @@ account info">
     </html>
 <?php } else if (!empty($_SESSION['admin_info'])) {
     $compt = 0;
+    $comptA = 0;
 ?>
 
 
@@ -238,7 +239,7 @@ account info">
             <p> 📚 article</p>
             <p> 🎞 carousel</p>
             <p> 🚛 commande</p>
-            <p> 🤑 user</p>
+            <p class="slider_user"> 🤑 user</p>
         </div>
 
         <!-- sur la compte icone compte -->
@@ -353,10 +354,10 @@ account info">
                                     </tr>";
                                 } ?>
                                 <tr><form action="" method="post">
-                                    <td><input type="text" class="upgrade" name="reference"></td>
+                                    <td><input type="number" class="upgrade" name="reference"></td>
                                     <td><input type="text" class="upgrade" name="nom"></td>
                                     <td><input type="text" class="upgrade" name="prenom"></td>
-                                    <td><input type="text" class="upgrade" name="email"></td>
+                                    <td><input type="email" class="upgrade" name="email"></td>
                                     <td><input type="text" class="upgrade" name="password"></td>
                                     <td><button class="upgrade">ajouter</button></td>
                                 </form>
@@ -369,7 +370,69 @@ account info">
             </div>
         </div>
 
-        
+         <!--la partir article  -->
+         <div class="user main">
+            <div class="none">
+                <div class="user_title ">
+                    <div class="first premier">
+                        <p>
+                            user
+                        </p>
+                    </div>
+                    <p class="deuxieme out">⚔️</p>
+                </div>
+                <div class="user_main main_principale">
+                    <div class="user_main--option">
+                        <table>
+                           
+                            <thead>
+                                <th>id</th>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th>tel</th>
+                                <th>email</th>
+                                <th>password</th>
+                                <th>modifier</th>
+                                <th>suprimer</th>
+
+                            </thead>
+                            <tbody>
+
+                                <?php foreach ($_SESSION['user'] as $key => $value) {
+                                    $comptA += 1;
+                                    $compte = "btnU" . $comptA;
+                                    echo "
+                                    <tr>
+                                    <td class='" . $compte . "'>" . $_SESSION['user'][$key]['id'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['user'][$key]['nom'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['user'][$key]['prenom'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['user'][$key]['tel'] . "</td>
+                                    <td class='" . $compte . "'>" . $_SESSION['user'][$key]['email'] . "</td>
+                                    <td class='" . $compte . "'>" . substr($_SESSION['user'][$key]['pass'],0,10). "...</td>
+                                    <td id='" . $comptA . "' class='btn_upgrade_user'><button>modifier</button></td>
+                                    <td id='" . $comptA . "' class='btn_delete_user'><button>suprimer</button></td>
+                                    </tr>";
+                                } ?>
+                                <tr><form action="" method="post">
+                                    <td><input type="number" class="upgrade" name="reference"></td>
+                                    <td><input type="text" class="upgrade" name="nom"></td>
+                                    <td><input type="text" class="upgrade" name="prenom"></td>
+                                    <td><input type="tel" class="upgrade" name="tel"></td>
+                                    <td><input type='email' class="upgrade" name="email"></td>
+                                    <td><input type="text" class="upgrade" name="password"></td>
+                                    <td><button class="upgrade">ajouter</button></td>
+                                    <td class="typeUser"><input type="text" name="type" value="ajouterUser"></td>
+                                </form> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
         <!-- un peu d'aide a le router via js -->
         <script>
             if (location.href != "<?= redirection::redirect() ?>/admin" && location.href != "<?= redirection::redirect() ?>/error") {
@@ -388,6 +451,7 @@ account info">
                 <input type="text" class="autre" name="email">
                 <input type="text" class="autre" name="password">
                 <input type="text" class="autre" name="type">
+                <input type="text" class="autre" name="tel">
                 <input type="submit" class="finalSubmit">
             </form>
         </div>

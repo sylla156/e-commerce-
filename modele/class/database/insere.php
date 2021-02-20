@@ -17,7 +17,18 @@ class insere extends connexion
         $this->connecter();
         $go = $this->db->prepare("INSERT INTO `personne` (`id`, `nom`, `prenom`,`tel`, `email`, `pass`) VALUES (NULL,?,?,?,?,?)");
 
-        $go->execute(array($nom, $prenom, $tel, $email, hash::or_hash($password)));
+        $go->execute(array($reference,$nom, $prenom, $tel, $email, hash::or_hash($password)));
+        return true;
+    }
+
+
+    public function insereUser($reference,string $nom, string $prenom, int $tel, string $email, string $password)
+    {
+
+        $this->connecter();
+        $go = $this->db->prepare("INSERT INTO `personne` (`id`, `nom`, `prenom`,`tel`, `email`, `pass`) VALUES (?,?,?,?,?,?)");
+
+        $go->execute(array($reference,$nom, $prenom, $tel, $email, hash::or_hash($password)));
         return true;
     }
 
