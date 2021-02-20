@@ -17,9 +17,18 @@ if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom'
     isset($_POST['type'])?$type = $_POST['type']:$type=null;
 
     if($type == 'envoyer'){
+        if(verifier::nom($nom) and  verifier::nom($prenom)  and verifier::email($email)  and verifier::password($password)){
 
-        $db = new modifier();
-        $db->modifier_admin($nom,$prenom,$email,$password,$reference);
+            $db = new modifier();
+            $db->modifier_admin($nom,$prenom,$email,$password,$reference);
+        }else{
+            $alert ="<div class='shit'>
+            <p>
+                vos modification sont incorrect
+            </p>
+        </div>";
+        echo $alert;
+        }
        
     }
 

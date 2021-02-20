@@ -205,6 +205,7 @@ account info">
     </head>
 
     <body>
+       <!-- simplement le header et simplement le header -->
         <header class="head">
             <div class="head_main">
 
@@ -231,7 +232,7 @@ account info">
 
         </header>
 
-
+        <!-- le silder c'est tout simple -->
         <div class="slider no-click">
             <p class='slider_admin'> 👥 admin</p>
             <p> 📚 article</p>
@@ -240,7 +241,7 @@ account info">
             <p> 🤑 user</p>
         </div>
 
-
+        <!-- sur la compte icone compte -->
         <div class="sign no-click">
 
 
@@ -279,7 +280,7 @@ account info">
             </div> -->
         </div>
 
-
+        <!-- info sur le compte -->
         <div class="account main">
             <div class="none">
 
@@ -309,7 +310,8 @@ account info">
                 </div>
             </div>
         </div>
-
+         
+         <!--la partir administration  -->
         <div class="admin main">
             <div class="none">
                 <div class="admin_title ">
@@ -367,6 +369,8 @@ account info">
             </div>
         </div>
 
+        
+        <!-- un peu d'aide a le router via js -->
         <script>
             if (location.href != "<?= redirection::redirect() ?>/admin" && location.href != "<?= redirection::redirect() ?>/error") {
 
@@ -374,6 +378,8 @@ account info">
 
             }
         </script>
+
+        <!-- d'ici ou tout les informations transite et qui est en mode disparutio pour l'admin -->
         <div class="form">
             <form action="" method="post">
                 <input type="text" class="autre" name="reference">
