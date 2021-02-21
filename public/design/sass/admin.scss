@@ -325,6 +325,7 @@ span {
 
 
 .user {
+    display: none;
     &_title {
         @include flex(row);
         .first {    
@@ -341,7 +342,7 @@ span {
             
         }
 
-        .quitte{
+        .quitte , .out{
             padding: 20px;
             cursor: pointer;
         }
@@ -390,7 +391,7 @@ span {
     }
 }
 
-.finalSubmit , .autre{
+.finalSubmit , .autre , .typeUser{
     width: 0px;
     opacity: 0;
 }

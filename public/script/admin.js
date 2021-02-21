@@ -1,6 +1,6 @@
 // for les bouble click de menu ou de slide de sign
 
-// for les info u compte
+// for les info du compte
 let btn_account = document.querySelector(".btn_account");
 let main_account = document.querySelector(".account");
 let quit_account = document.querySelector(".accountQuit");
@@ -19,7 +19,7 @@ ALLBtnDelete(btn_delete);
 let btnUpgradeUser = document.querySelectorAll('.btn_upgrade_user');
 let btnDeleteUser = document.querySelectorAll('.btn_delete_user');
 AllBtnUpgrade(btnUpgradeUser, btnDeleteUser, "user");
-ALLBtnDelete(btnDeleteUser);
+ALLBtnDelete(btnDeleteUser,"user");
 
 // for visible or invisible admin
 let btn_admin = document.querySelector(".slider_admin");
@@ -29,6 +29,12 @@ clicker(btn_admin, main_admin);
 quit(quit_admin, main_admin);
 
 
+// for visible or invisible user;
+let btn_user = document.querySelector('.slider_user');
+let main_user = document.querySelector('.user');
+let quit_user = document.querySelector('.out');
+clicker(btn_user,main_user);
+quit(quit_user,main_user);
 
 function AllBtnUpgrade(upgrade, delet, mytype = "admin") {
   let child_upgrade_count = undefined;
@@ -108,7 +114,7 @@ function AllBtnUpgrade(upgrade, delet, mytype = "admin") {
   });
 }
 
-function ALLBtnDelete(delet) {
+function ALLBtnDelete(delet,mytype = "admin") {
   let child_delete_count = undefined;
   let child_deleteALL = undefined;
 
@@ -121,9 +127,15 @@ function ALLBtnDelete(delet) {
       if (confirm("etre vous sur de vouloir suprimer")) {
         child_delete_count = element.attributes.id.value;
         if (child_delete_count != undefined) {
-          child_deleteALL = document.querySelectorAll(
-            ".btn" + child_delete_count
-          );
+          if (mytype == "user") {
+            child_deleteALL = document.querySelectorAll(
+              `.btnU${child_delete_count}`
+            );
+          } else {
+            child_deleteALL = document.querySelectorAll(
+              `.btn${child_delete_count}`
+            );
+          }
           // console.log(envoie);
           // console.log(child_deleteALL);
           envoie[0].value = child_deleteALL[0].innerText;
@@ -131,7 +143,12 @@ function ALLBtnDelete(delet) {
           envoie[2].value = child_deleteALL[2].innerText;
           envoie[3].value = child_deleteALL[3].innerText;
           envoie[4].value = child_deleteALL[4].innerText;
-          envoie[5].value = "suprimer";
+          if (mytype = "user"){
+            envoie[5].value = "suprimerUser";
+          
+          }else{
+            envoie[5].value = "suprimer";
+          } 
           click_envoi.click();
         }
       }

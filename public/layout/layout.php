@@ -239,7 +239,7 @@ account info">
             <p> 📚 article</p>
             <p> 🎞 carousel</p>
             <p> 🚛 commande</p>
-            <p> 🤑 user</p>
+            <p class="slider_user"> 🤑 user</p>
         </div>
 
         <!-- sur la compte icone compte -->
@@ -354,10 +354,10 @@ account info">
                                     </tr>";
                                 } ?>
                                 <tr><form action="" method="post">
-                                    <td><input type="text" class="upgrade" name="reference"></td>
+                                    <td><input type="number" class="upgrade" name="reference"></td>
                                     <td><input type="text" class="upgrade" name="nom"></td>
                                     <td><input type="text" class="upgrade" name="prenom"></td>
-                                    <td><input type="text" class="upgrade" name="email"></td>
+                                    <td><input type="email" class="upgrade" name="email"></td>
                                     <td><input type="text" class="upgrade" name="password"></td>
                                     <td><button class="upgrade">ajouter</button></td>
                                 </form>
@@ -379,7 +379,7 @@ account info">
                             user
                         </p>
                     </div>
-                    <p class="deuxieme quitte">⚔️</p>
+                    <p class="deuxieme out">⚔️</p>
                 </div>
                 <div class="user_main main_principale">
                     <div class="user_main--option">
@@ -421,7 +421,8 @@ account info">
                                     <td><input type='email' class="upgrade" name="email"></td>
                                     <td><input type="text" class="upgrade" name="password"></td>
                                     <td><button class="upgrade">ajouter</button></td>
-                                </form>
+                                    <td class="typeUser"><input type="text" name="type" value="ajouterUser"></td>
+                                </form> 
                                 </tr>
                             </tbody>
                         </table>
