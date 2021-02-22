@@ -34,11 +34,11 @@ if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom'
         $db->suprimer_admin($reference);
     } else if ($type == "envoyerUser") {
         if (isset($_POST['tel'])) {
-            $tel = $_POST['tel'];
-            // dump(verifier::tel(11111111));
+            $tel = (int) $_POST['tel'];
+            // dump(verifier::tel($tel),verifier::nom($nom),verifier::nom($prenom),verifier::email($email));
             if (verifier::nom($nom) and  verifier::nom($prenom)  and verifier::tel($tel) and verifier::email($email)) {
                 $db = new modifier();
-                $db->modifier_user($nom, $prenom, $email, $reference);
+                $db->modifier_user($nom, $prenom, $email,$tel,$password,$reference);
             } else {
                 $alert = "<div class='shit'>
                 <p>
@@ -51,7 +51,8 @@ if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom'
     } else if ($type == "ajouterUser") {
         if (isset($_POST['tel'])) {
             $tel = $_POST['tel'];
-            if ( verifier::reference($reference) and verifier::nom($nom) and  verifier::nom($prenom)  and verifier::tel($tel)  and verifier::email($email)  and verifier::password($password)) {
+            // dump(verifier::tel($tel));
+            if ( verifier::reference($reference,"user") and verifier::nom($nom) and  verifier::nom($prenom)  and verifier::tel($tel)  and verifier::email($email)  and verifier::password($password)) {
                 $db = new insere();
                 $db->insereUser($reference,$nom,$prenom,$tel,$email,$password);
             }else {
@@ -70,7 +71,7 @@ if (isset($_POST['nom']) and isset($_POST['password']) and isset($_POST['prenom'
     
     else {
 
-        if (verifier::reference($reference) and verifier::nom($nom) and  verifier::nom($prenom)  and verifier::email($email)  and verifier::password($password)) {
+        if (verifier::reference($reference,"admin") and verifier::nom($nom) and  verifier::nom($prenom)  and verifier::email($email)  and verifier::password($password)) {
             $db = new insere();
             $db->insere_admin($reference, $nom, $prenom, $email, $password);
         } else {

@@ -11,8 +11,8 @@ quit(quit_account, main_account);
 // administrattion fonctionnaliter
 let btn_upgrade = document.querySelectorAll(".btn_upgrade");
 let btn_delete = document.querySelectorAll(".btn_delete");
-AllBtnUpgrade(btn_upgrade, btn_delete);
-ALLBtnDelete(btn_delete);
+AllBtnUpgrade(btn_upgrade, btn_delete,"admin");
+ALLBtnDelete(btn_delete,"admin");
 
 
 // administration for user
@@ -25,7 +25,7 @@ ALLBtnDelete(btnDeleteUser,"user");
 let btn_admin = document.querySelector(".slider_admin");
 let main_admin = document.querySelector(".admin");
 let quit_admin = document.querySelector(".quitte");
-clicker(btn_admin, main_admin);
+clicker(btn_admin, main_admin); 
 quit(quit_admin, main_admin);
 
 
@@ -36,7 +36,7 @@ let quit_user = document.querySelector('.out');
 clicker(btn_user,main_user);
 quit(quit_user,main_user);
 
-function AllBtnUpgrade(upgrade, delet, mytype = "admin") {
+function AllBtnUpgrade(upgrade, delet, mytype) {
   let child_upgrade_count = undefined;
   let child_upgradeALL = undefined;
   let btn_admin_annuler = undefined;
@@ -114,7 +114,7 @@ function AllBtnUpgrade(upgrade, delet, mytype = "admin") {
   });
 }
 
-function ALLBtnDelete(delet,mytype = "admin") {
+function ALLBtnDelete(delet,mytype) {
   let child_delete_count = undefined;
   let child_deleteALL = undefined;
 
@@ -131,7 +131,7 @@ function ALLBtnDelete(delet,mytype = "admin") {
             child_deleteALL = document.querySelectorAll(
               `.btnU${child_delete_count}`
             );
-          } else {
+          } else if (mytype == "admin") {
             child_deleteALL = document.querySelectorAll(
               `.btn${child_delete_count}`
             );
@@ -143,10 +143,10 @@ function ALLBtnDelete(delet,mytype = "admin") {
           envoie[2].value = child_deleteALL[2].innerText;
           envoie[3].value = child_deleteALL[3].innerText;
           envoie[4].value = child_deleteALL[4].innerText;
-          if (mytype = "user"){
+          if (mytype == "user"){
             envoie[5].value = "suprimerUser";
           
-          }else{
+          }else if (mytype == "admin"){
             envoie[5].value = "suprimer";
           } 
           click_envoi.click();

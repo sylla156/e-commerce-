@@ -58,6 +58,21 @@ class take extends connexion
         }
     }
 
+    public function take_element_userForReference(string $reference): bool
+    {
+
+        $this->connecter();
+        $go = $this->db->prepare("SELECT * FROM `personne` WHERE `id` = ? ");
+
+        $go->execute(array($reference));
+
+        if ($go->fetchAll() || $go->fetchALL() != null) {
+            return false;
+        } else if ($go->fetchALL() == null) {
+            return true;
+        }
+    }
+
 
     public function takeElementAllUser(): array
     {
